@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 import { Navbar } from "@/components/layout/Navbar";
@@ -38,6 +39,14 @@ export default function RootLayout({
     <html lang="en" className={`${plusJakartaSans.variable} ${dmSans.variable}`}>
       <head>
         <link rel="preload" href="/molar_tooth.glb" as="fetch" crossOrigin="anonymous" />
+        {/* React Scan — dev only, never ships to production */}
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            src="//unpkg.com/react-scan/dist/auto.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
+        )}
       </head>
       <body className="antialiased min-h-screen flex flex-col relative selection:bg-[var(--color-primary)] selection:text-white">
         <Navbar />

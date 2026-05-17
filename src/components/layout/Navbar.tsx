@@ -42,8 +42,8 @@ export function Navbar() {
           className={cn(
             "mx-auto max-w-7xl flex items-center justify-between rounded-full px-4 py-3 md:px-6 md:py-4 transition-all duration-300",
             isScrolled
-              ? "bg-white/95 shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-xl border border-white/20"
-              : "bg-white/80 backdrop-blur-md shadow-sm border border-white/50"
+              ? "bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-[var(--color-border)]"
+              : "bg-white/95 shadow-sm border border-[var(--color-border)]"
           )}
         >
           {/* Logo */}

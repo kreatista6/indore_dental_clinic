@@ -27,6 +27,39 @@ function RendererWakeup() {
   return null;
 }
 
+function BackdropGlow() {
+  const meshRef = useRef<THREE.Mesh>(null!);
+
+  const texture = (() => {
+    const size = 512;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d")!;
+    const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+    gradient.addColorStop(0,   "rgba(13, 115, 119, 1.0)");
+    gradient.addColorStop(0.3, "rgba(13, 115, 119, 0.85)");
+    gradient.addColorStop(0.6, "rgba(20, 184, 166, 0.5)");
+    gradient.addColorStop(1,   "rgba(13, 115, 119, 0)");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, size, size);
+    return new THREE.CanvasTexture(canvas);
+  })();
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    const s = 1 + Math.sin(t * 0.8) * 0.06;
+    meshRef.current.scale.set(s, s, 1);
+  });
+
+  return (
+    <mesh ref={meshRef} position={[0, 0, -1.5]}>
+      <planeGeometry args={[8, 8]} />
+      <meshBasicMaterial map={texture} transparent opacity={1} depthWrite={false} blending={THREE.AdditiveBlending} />
+    </mesh>
+  );
+}
+
 function Tooth() {
   const group = useRef<THREE.Group>(null!);
   const { scene } = useGLTF("/molar_tooth.glb");
@@ -88,6 +121,7 @@ export function ToothModel() {
         <directionalLight position={[-4, 2, -4]} intensity={0.4} color="#C9A96E" />
         <pointLight position={[3, 3, 3]} intensity={0.8} />
         <Suspense fallback={null}>
+          <BackdropGlow />
           <Tooth />
           <ContactShadows position={[0, -1.6, 0]} opacity={0.1} scale={4} blur={2} far={2} />
         </Suspense>

@@ -75,10 +75,14 @@
     text-wrap: balance;
   }
   .glass-panel {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
+    background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: var(--shadow-card);
+    /* backdrop-filter only on desktop — too expensive on mobile GPU */
+    @media (min-width: 1024px) {
+      backdrop-filter: blur(16px);
+      background-color: rgba(255, 255, 255, 0.85);
+    }
   }
   .glass-panel-dark {
     background-color: rgba(13, 115, 119, 0.85);
@@ -96,6 +100,11 @@
     background-color: var(--color-surface);
     box-shadow: var(--shadow-inner-glow);
   }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Prevent horizontal overflow without breaking sticky positioning.
