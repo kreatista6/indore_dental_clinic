@@ -1,0 +1,46 @@
+import Link from "next/link";
+import Image from "next/image";
+import { SERVICES_DATA } from "@/lib/services-data";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+
+export default function ServicesPage() {
+  return (
+    <div className="pb-12">
+      <section className="bg-[var(--color-bg)] py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
+          <ScrollReveal>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-3">
+              Our Treatments
+            </h1>
+            <p className="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+              Comprehensive dental solutions performed by specialists using advanced technology.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="py-8">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SERVICES_DATA.map((service, i) => (
+              <ScrollReveal key={service.slug} delay={i * 0.05}>
+                <Link href={`/services/${service.slug}`} className="group block h-full">
+                  <div className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all h-full flex flex-col">
+                    <div className="h-40 w-full relative overflow-hidden">
+                      <Image src={service.heroImage} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div className="p-5 flex flex-col flex-1 items-center text-center">
+                      <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{service.title}</h3>
+                      <p className="text-sm text-[var(--color-text-muted)] mb-4 flex-1">{service.shortDescription}</p>
+                      <span className="text-[var(--color-primary)] font-semibold text-sm mt-auto group-hover:underline">Learn More →</span>
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
