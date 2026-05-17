@@ -91,8 +91,8 @@ export function ImageSlider({ beforeImage, afterImage, className }: ImageSliderP
 
       {/* Slider Handle */}
       <div
-        className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize drop-shadow-md z-10 flex items-center justify-center transition-transform"
-        style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
+        className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize drop-shadow-md z-10 flex items-center justify-center"
+        style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)", willChange: "left" }}
       >
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[var(--color-primary)] shadow-lg hover:scale-110 transition-transform">
           <ArrowsLeftRight weight="bold" size={20} />

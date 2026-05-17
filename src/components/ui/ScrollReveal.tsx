@@ -20,18 +20,20 @@ export function ScrollReveal({
   className,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   const getVariants = () => {
+    // On mobile, avoid horizontal translations entirely — they cause overflow and jank
+    // Only use vertical (y) animations which are GPU-composited safely
     switch (direction) {
       case "up":
-        return { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } };
+        return { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
       case "down":
-        return { hidden: { opacity: 0, y: -40 }, visible: { opacity: 1, y: 0 } };
+        return { hidden: { opacity: 0, y: -24 }, visible: { opacity: 1, y: 0 } };
       case "left":
-        return { hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0 } };
+        return { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
       case "right":
-        return { hidden: { opacity: 0, x: -40 }, visible: { opacity: 1, x: 0 } };
+        return { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
     }
   };
 
@@ -41,7 +43,7 @@ export function ScrollReveal({
         variants={getVariants()}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        transition={{ duration: 0.8, delay, ease: [0.32, 0.72, 0, 1] }}
+        transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {children}
       </motion.div>
@@ -52,8 +54,8 @@ export function ScrollReveal({
 export function StaggerContainer({
   children,
   className,
-  delayChildren = 0.2,
-  staggerChildren = 0.1,
+  delayChildren = 0.1,
+  staggerChildren = 0.08,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -61,7 +63,7 @@ export function StaggerContainer({
   staggerChildren?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <motion.div
@@ -89,8 +91,8 @@ export function StaggerItem({ children, className }: { children: React.ReactNode
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.32, 0.72, 0, 1] } },
+        hidden: { opacity: 0, y: 16 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } },
       }}
     >
       {children}

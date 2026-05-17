@@ -23,10 +23,10 @@ export function SmileGalleryPreview() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-14 md:py-20 bg-white overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <ScrollReveal>
-          <div className="flex flex-col items-center text-center gap-6 mb-16">
+          <div className="flex flex-col items-center text-center gap-4 mb-10">
             <SectionHeading
               eyebrow="Transformations"
               title="Real Patient Results"
@@ -40,10 +40,10 @@ export function SmileGalleryPreview() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
           {previewCases.map((item, i) => (
-            <ScrollReveal key={item.id} delay={i * 0.2} width="100%">
-              <div className="flex flex-col gap-4">
+            <ScrollReveal key={item.id} delay={i * 0.1} width="100%">
+              <div className="flex flex-col gap-3">
                 <ImageSlider 
                   beforeImage={item.beforeImage} 
                   afterImage={item.afterImage} 
