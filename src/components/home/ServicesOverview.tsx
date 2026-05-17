@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -145,19 +146,23 @@ function MobileView() {
           sizes="100vw"
         />
         {/* Prev / Next */}
-        <div className="absolute inset-0 flex items-center justify-between px-3">
+        <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
           <button
             onClick={() => setActiveIndex((i) => Math.max(0, i - 1))}
             disabled={activeIndex === 0}
-            className="w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow disabled:opacity-30"
+            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30 transition-opacity"
             aria-label="Previous"
-          >←</button>
+          >
+            <CaretLeft weight="bold" size={20} />
+          </button>
           <button
             onClick={() => setActiveIndex((i) => Math.min(SLIDES.length - 1, i + 1))}
             disabled={activeIndex === SLIDES.length - 1}
-            className="w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow disabled:opacity-30"
+            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30 transition-opacity"
             aria-label="Next"
-          >→</button>
+          >
+            <CaretRight weight="bold" size={20} />
+          </button>
         </div>
         <div className="absolute bottom-3 left-0 right-0 flex gap-1.5 justify-center">
           {SLIDES.map((_, i) => (
