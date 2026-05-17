@@ -18,59 +18,52 @@ export function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    // passive: true — critical for mobile scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isMobileMenuOpen]);
 
   return (
     <>
-      <motion.header
+      <header
         className={cn(
-          "fixed left-0 right-0 top-0 z-50 mx-auto w-full max-w-7xl transition-all duration-500 md:top-6 px-4",
-          isScrolled ? "md:top-4" : "md:top-6"
+          "fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 px-4",
+          "md:top-6",
+          isScrolled && "md:top-3"
         )}
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
       >
         <div
           className={cn(
-            "flex items-center justify-between rounded-full px-6 py-4 transition-all duration-500",
+            "mx-auto max-w-7xl flex items-center justify-between rounded-full px-4 py-3 md:px-6 md:py-4 transition-all duration-300",
             isScrolled
-              ? "bg-white/90 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-xl border border-white/20"
-              : "bg-white/70 backdrop-blur-md shadow-sm border border-white/50"
+              ? "bg-white/95 shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-xl border border-white/20"
+              : "bg-white/80 backdrop-blur-md shadow-sm border border-white/50"
           )}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-2 md:gap-3 shrink-0">
             <Image
               src="/logo.png"
               alt="Indore Dental Hospital"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain transition-transform group-hover:scale-105"
+              width={36}
+              height={36}
+              className="h-8 w-8 md:h-10 md:w-10 object-contain"
               priority
             />
             <div className="flex flex-col leading-tight">
-              <span className="text-base font-bold tracking-tight text-[var(--color-text-primary)]">Indore Dental</span>
-              <span className="text-xs font-medium text-[var(--color-text-muted)] tracking-wide">Hospital</span>
+              <span className="text-sm md:text-base font-bold tracking-tight text-[var(--color-text-primary)]">Indore Dental</span>
+              <span className="text-[10px] md:text-xs font-medium text-[var(--color-text-muted)] tracking-wide">Hospital</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -96,96 +89,93 @@ export function Navbar() {
           </nav>
 
           {/* CTA / Hamburger */}
-          <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center gap-2 mr-4">
-              <PhoneCall className="h-4 w-4 text-[var(--color-primary)]" />
-              <a
-                href={`https://wa.me/${CLINIC_PHONE.replace(/[^0-9]/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold text-[var(--color-primary)] hover:underline"
-              >
-                {CLINIC_PHONE}
-              </a>
-            </div>
-            
-            <Button asChild size="sm" className="hidden sm:inline-flex">
+          <div className="flex items-center gap-2 md:gap-3">
+            <a
+              href={`https://wa.me/${CLINIC_PHONE.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:underline mr-2"
+            >
+              <PhoneCall className="h-4 w-4" />
+              {CLINIC_PHONE}
+            </a>
+
+            <Button asChild size="sm" className="hidden sm:inline-flex text-xs md:text-sm px-3 md:px-4">
               <Link href="/contact">Book Visit</Link>
             </Button>
-            
+
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] md:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] lg:hidden"
+              aria-label="Open menu"
             >
               <List className="h-5 w-5" />
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-white/95 backdrop-blur-2xl"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[60] bg-white"
           >
-            <div className="flex h-full flex-col px-6 py-6">
-              <div className="flex items-center justify-between mb-12">
-                <Link href="/" className="flex items-center gap-3">
-                  <Image
-                    src="/logo.png"
-                    alt="Indore Dental Hospital"
-                    width={40}
-                    height={40}
-                    className="h-9 w-9 object-contain"
-                  />
+            <div className="flex h-full flex-col px-6 py-6 safe-area-inset">
+              <div className="flex items-center justify-between mb-10">
+                <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Image src="/logo.png" alt={CLINIC_NAME} width={36} height={36} className="h-9 w-9 object-contain" />
                   <div className="flex flex-col leading-tight">
-                    <span className="text-base font-bold tracking-tight text-[var(--color-text-primary)]">Indore Dental</span>
-                    <span className="text-xs font-medium text-[var(--color-text-muted)] tracking-wide">Hospital</span>
+                    <span className="text-base font-bold text-[var(--color-text-primary)]">Indore Dental</span>
+                    <span className="text-xs text-[var(--color-text-muted)]">Hospital</span>
                   </div>
                 </Link>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)]"
+                  aria-label="Close menu"
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-5 w-5" />
                 </button>
               </div>
-              
-              <nav className="flex flex-col gap-6">
+
+              <nav className="flex flex-col gap-1">
                 {NAV_LINKS.map((link, i) => (
-                  <motion.div
+                  <Link
                     key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      "text-2xl font-bold tracking-tight py-3 border-b border-[var(--color-border)] transition-colors",
+                      pathname === link.href
+                        ? "text-[var(--color-primary)]"
+                        : "text-[var(--color-text-primary)]"
+                    )}
+                    style={{ animationDelay: `${i * 50}ms` }}
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-3xl font-bold tracking-tight text-[var(--color-text-primary)] hover:text-[var(--color-primary)]"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
+                    {link.label}
+                  </Link>
                 ))}
               </nav>
 
-              <div className="mt-auto pb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+              <div className="mt-auto pb-8 flex flex-col gap-3">
+                <a
+                  href={`https://wa.me/${CLINIC_PHONE.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[var(--color-primary)] text-[var(--color-primary)] font-semibold py-3 px-6"
                 >
-                  <Button asChild size="lg" className="w-full">
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                      Book Appointment
-                    </Link>
-                  </Button>
-                </motion.div>
+                  <PhoneCall className="h-4 w-4" /> {CLINIC_PHONE}
+                </a>
+                <Button asChild size="lg" className="w-full">
+                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Book Appointment
+                  </Link>
+                </Button>
               </div>
             </div>
           </motion.div>

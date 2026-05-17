@@ -54,9 +54,10 @@ export const Card = ({
         style={{
           backgroundColor: color,
           scale,
-          top: `calc(5vh + ${i * 25}px)`,
+          // Use translateY instead of top — GPU composited, no layout thrash
+          translateY: `calc(5vh + ${i * 25}px)`,
         }}
-        className={cn(`flex flex-col relative h-[550px] w-[95%] max-w-[900px] rounded-[2rem] p-12 origin-top text-white shadow-2xl border border-white/10`, isViewAll && "justify-center items-center")}
+        className={cn(`flex flex-col relative h-auto min-h-[400px] md:h-[520px] w-[95%] max-w-[900px] rounded-[2rem] p-6 md:p-10 origin-top text-white shadow-2xl border border-white/10`, isViewAll && "justify-center items-center")}
       >
         {isViewAll ? (
           <div className="flex flex-col items-center justify-center h-full gap-6 text-center">
@@ -70,19 +71,13 @@ export const Card = ({
           </div>
         ) : (
           <>
-            <h2 className='text-3xl font-bold mb-6'>{title}</h2>
-            <div className={`flex h-full gap-10`}>
-              <div className={`w-[45%] flex flex-col justify-center`}>
-                <p className='text-lg leading-relaxed text-slate-300'>{description}</p>
+            <h2 className='text-2xl md:text-3xl font-bold mb-4'>{title}</h2>
+            <div className={`flex flex-col md:flex-row h-full gap-6 md:gap-10`}>
+              <div className={`w-full md:w-[45%] flex flex-col justify-center`}>
+                <p className='text-base leading-relaxed text-slate-300'>{description}</p>
               </div>
-
-              <div
-                className={`relative w-[55%] h-full rounded-2xl overflow-hidden `}
-              >
-                <motion.div
-                  className={`w-full h-full`}
-                  style={{ scale: imageScale }}
-                >
+              <div className={`relative w-full md:w-[55%] h-48 md:h-full rounded-2xl overflow-hidden`}>
+                <motion.div className={`w-full h-full`} style={{ scale: imageScale }}>
                   <img src={url} alt={title} className='absolute inset-0 w-full h-full object-cover opacity-90' />
                 </motion.div>
               </div>

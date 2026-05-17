@@ -14,28 +14,26 @@ export function DoctorSection() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white overflow-hidden">
+    <section className="py-14 md:py-24 bg-white overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           
           {/* Left: Image (Doctor) */}
-          <ScrollReveal direction="right" width="100%">
-            <div className="relative">
-              {/* Decorative block behind image */}
-              <div className="absolute -inset-4 md:-inset-6 bg-[var(--color-primary-light)] rounded-[3rem] -z-10 rotate-[-3deg] transform-gpu" />
-              
-              <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:max-w-none rounded-[2.5rem] overflow-hidden shadow-[var(--shadow-float)] border-[8px] border-white bg-gray-100">
+          <ScrollReveal width="100%">
+            <div className="relative pb-10 md:pb-0">
+              <div className="absolute -inset-3 md:-inset-6 bg-[var(--color-primary-light)] rounded-[2.5rem] -z-10 rotate-[-2deg] transform-gpu" />
+              <div className="relative aspect-[3/4] w-full max-w-xs mx-auto lg:max-w-none rounded-[2rem] overflow-hidden shadow-[var(--shadow-float)] border-[6px] border-white bg-gray-100">
                 <Image
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop"
                   alt="Dr. Sugandh - Principal Dentist"
                   fill
                   className="object-cover object-top"
+                  sizes="(max-width: 1024px) 320px, 400px"
                 />
               </div>
-              
-              {/* Floating Quote Badge */}
-              <div className="absolute -bottom-8 -right-4 md:right-8 glass-panel p-6 rounded-3xl max-w-[280px] shadow-xl">
-                <p className="text-sm font-medium italic text-[var(--color-text-primary)] relative z-10">
+              {/* Floating Quote Badge — contained within parent, no overflow */}
+              <div className="mx-4 mt-4 md:absolute md:-bottom-8 md:right-4 md:mx-0 md:mt-0 glass-panel p-4 rounded-2xl shadow-lg">
+                <p className="text-xs md:text-sm font-medium italic text-[var(--color-text-primary)]">
                   &quot;My philosophy is simple: treat every patient as if they were my own family. Honesty, precision, and zero pain.&quot;
                 </p>
               </div>

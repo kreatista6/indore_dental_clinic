@@ -60,12 +60,12 @@ export function AppointmentCTA() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-24 bg-white relative overflow-hidden">
       {/* Decorative abstract mesh */}
       <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-bl from-[var(--color-primary-light)] to-transparent opacity-50 z-0 pointer-events-none" />
 
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center bg-white rounded-[3rem] p-8 md:p-16 shadow-[var(--shadow-float)] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start bg-white rounded-[2rem] p-6 md:p-12 shadow-[var(--shadow-float)] border border-[var(--color-border)]">
           
           {/* Left: Content */}
           <div className="flex flex-col gap-8 items-center text-center">

@@ -39,7 +39,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-24 md:py-32 bg-[var(--color-bg)]">
+    <section className="py-14 md:py-24 bg-[var(--color-bg)]">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <ScrollReveal>
           <SectionHeading

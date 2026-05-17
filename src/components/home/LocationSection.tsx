@@ -7,14 +7,14 @@ import { MapPin, Clock, Phone, Envelope } from "@phosphor-icons/react/dist/ssr";
 
 export function LocationSection() {
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-14 md:py-24 bg-white">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <ScrollReveal>
           <SectionHeading
             eyebrow="Visit Us"
             title="Location & Timings"
             alignment="center"
-            className="mb-16"
+            className="mb-10"
           />
         </ScrollReveal>
 
