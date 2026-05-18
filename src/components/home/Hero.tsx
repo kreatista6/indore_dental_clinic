@@ -15,7 +15,7 @@ const ToothModel = dynamic(
 
 export function Hero() {
   return (
-    <section className="relative min-h-[85dvh] w-full flex items-center bg-[var(--color-bg)] overflow-hidden pt-20 md:pt-0">
+    <section className="relative min-h-[85dvh] w-full flex items-start md:items-center bg-[var(--color-bg)] overflow-hidden">
       {/* Mobile background image — shown only below lg */}
       <div className="absolute inset-0 z-0 lg:hidden">
         <Image
@@ -44,7 +44,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-8 relative z-10 py-12 md:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 md:px-8 relative z-10 py-8 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* ── Left: Content ─────────────────────────────────────── */}
