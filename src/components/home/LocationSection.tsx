@@ -7,7 +7,7 @@ import { MapPin, Clock, Phone, Envelope } from "@phosphor-icons/react/dist/ssr";
 
 export function LocationSection() {
   return (
-    <section className="py-14 md:py-24 bg-white">
+    <section className="py-14 md:py-24 section-teal-wash">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <ScrollReveal>
           <SectionHeading

@@ -1,10 +1,20 @@
 import type { FAQ, StatItem, ClinicTiming, Testimonial } from "@/types";
 
 export const CLINIC_NAME = "Indore Dental Hospital";
+export const CLINIC_TAGLINE = "Dental • Aesthetics • Implants • Aligners";
+export const CLINIC_SINCE = "2012";
 export const CLINIC_ADDRESS = "Luvkush Market, Near Aurobindo Hospital, Indore";
 export const CLINIC_PHONE = "+91 9977788837";
 export const CLINIC_EMAIL = "indoredentalhospital@gmail.com";
 export const CLINIC_MAP_URL = "https://goo.gl/maps/placeholder";
+
+export const DOCTOR = {
+  name: "डॉ. सुगंध श्रीवास्तव",
+  nameEn: "Dr. Sugandh Shrivastava",
+  title: "Maxillofacial Prosthodontist & Implantologist",
+  titleHi: "मैक्सिलोफ़ेशियल प्रॉस्थोडोंटिस्ट एवं इंप्लांटोलॉजिस्ट",
+  credentials: ["M.D.S.", "F.A.G.E. (Karnataka)", "F.W.C.L.I. (USA)", "P.G.C.O.I. (Israel)"],
+};
 
 export const CLINIC_TIMINGS: ClinicTiming[] = [
   { days: "Monday - Saturday", hours: "9:00 AM - 8:00 PM" },

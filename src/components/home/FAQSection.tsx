@@ -12,7 +12,7 @@ import {
 
 export function FAQSection() {
   return (
-    <section className="py-14 md:py-24 bg-[var(--color-bg)]">
+    <section className="py-14 md:py-24 section-gold-wash">
       <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
         <ScrollReveal>
           <SectionHeading

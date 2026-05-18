@@ -24,7 +24,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES_DATA.map((service, i) => (
               <ScrollReveal key={service.slug} delay={i * 0.05}>
-                <Link href={`/services/${service.slug}`} className="group block h-full">
+                <Link href={`/services/${service.slug}`} className="group block h-full cursor-pointer">
                   <div className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all h-full flex flex-col">
                     <div className="h-40 w-full relative overflow-hidden">
                       <Image src={service.heroImage} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />

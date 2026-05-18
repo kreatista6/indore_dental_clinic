@@ -16,6 +16,7 @@
 
   --font-heading: var(--font-plus-jakarta-sans), "Helvetica Neue", sans-serif;
   --font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+  --font-hindi: var(--font-arya), "Noto Sans Devanagari", sans-serif;
 
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
@@ -84,6 +85,45 @@
       background-color: rgba(255, 255, 255, 0.85);
     }
   }
+  /* Hindi / Devanagari text utility */
+  .hindi {
+    font-family: var(--font-hindi);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  /* ── Section gradient rhythm ─────────────────────────────────────────────
+     Teal = #0D7377 (primary), Gold = #C9A96E (accent)
+     Each section flows from the hero's backdrop lighting colours.
+  ──────────────────────────────────────────────────────────────────────── */
+  .section-teal-wash {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      rgba(13, 115, 119, 0.07) 40%,
+      rgba(13, 115, 119, 0.12) 60%,
+      #ffffff 100%
+    );
+  }
+  .section-teal-deep {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      rgba(13, 115, 119, 0.14) 35%,
+      rgba(13, 115, 119, 0.20) 65%,
+      #ffffff 100%
+    );
+  }
+  .section-gold-wash {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      rgba(201, 169, 110, 0.08) 40%,
+      rgba(201, 169, 110, 0.14) 60%,
+      #ffffff 100%
+    );
+  }
+
   .glass-panel-dark {
     background-color: rgba(13, 115, 119, 0.85);
     backdrop-filter: blur(16px);
@@ -128,8 +168,9 @@ section {
   }
 }
 
-/* Prevent text size adjustment on orientation change */
+/* Smooth scroll for anchor links */
 html {
+  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }

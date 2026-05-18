@@ -60,7 +60,7 @@ export function AppointmentCTA() {
   };
 
   return (
-    <section className="py-14 md:py-24 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-24 section-teal-wash relative overflow-hidden">
       {/* Decorative abstract mesh */}
       <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-bl from-[var(--color-primary-light)] to-transparent opacity-50 z-0 pointer-events-none" />
 

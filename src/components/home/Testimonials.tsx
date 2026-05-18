@@ -49,7 +49,7 @@ export function Testimonials() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-bg)] overflow-hidden">
+    <section className="py-16 md:py-24 section-gold-wash overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8 mb-10">
         <ScrollReveal>
           <SectionHeading eyebrow="Patient Stories" title="Smiles That Speak" />

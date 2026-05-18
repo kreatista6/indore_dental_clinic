@@ -39,7 +39,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-14 md:py-24 bg-[var(--color-bg)]">
+    <section className="py-14 md:py-24 section-teal-wash">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <ScrollReveal>
           <SectionHeading
@@ -52,7 +52,7 @@ export function WhyChooseUs() {
         <StaggerContainer className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, i) => (
             <StaggerItem key={i}>
-              <div className="group h-full rounded-[2rem] bg-white p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] border border-[var(--color-border)]/50 flex flex-col items-center text-center">
+              <div className="group h-full rounded-[2rem] bg-white p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] border border-[var(--color-border)]/50 flex flex-col items-center text-center cursor-default">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-primary-light)] text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                   {feature.icon}
                 </div>

@@ -16,7 +16,7 @@ const SLIDES = SERVICES_DATA.filter((s) => s.featured)
     imageUrl: s.heroImage.replace("w=2000", "w=900"),
   }));
 
-// ─── Desktop: scroll-driven pinned section ───────────────────────────────────
+// ─── Desktop ─────────────────────────────────────────────────────────────────
 function DesktopView() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -49,30 +49,21 @@ function DesktopView() {
               alignment="center"
             />
           </div>
-
           <div className="flex gap-12 xl:gap-16 items-center">
-            {/* Service list */}
             <div className="flex-1 min-w-0">
               {SLIDES.map((slide, i) => {
                 const isActive = activeIndex === i;
                 return (
-                  <div
-                    key={slide.title}
-                    className="flex items-start gap-5 py-5 border-b border-[var(--color-border)] last:border-0"
-                  >
+                  <div key={slide.title} className="flex items-start gap-5 py-5 border-b border-[var(--color-border)] last:border-0">
                     <span className={`text-xs font-mono mt-2 w-5 shrink-0 transition-colors duration-200 ${isActive ? "text-[var(--color-primary)]" : "text-[var(--color-text-muted)]"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1 min-w-0">
-                      {/* Use CSS classes instead of animating color — GPU safe */}
                       <h3 className={`text-2xl lg:text-3xl font-bold tracking-tight transition-colors duration-200 ${isActive ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-light)]"}`}>
                         {slide.title}
                       </h3>
-                      {/* Use opacity-only animation — GPU composited */}
                       <div className={`overflow-hidden transition-all duration-300 ${isActive ? "max-h-20 opacity-100 mt-1.5" : "max-h-0 opacity-0"}`}>
-                        <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">
-                          {slide.shortDescription}
-                        </p>
+                        <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{slide.shortDescription}</p>
                       </div>
                     </div>
                   </div>
@@ -82,26 +73,11 @@ function DesktopView() {
                 View all 12+ treatments →
               </a>
             </div>
-
-            {/* Image panel — Next.js Image instead of motion.img */}
             <div className="w-[340px] lg:w-[420px] shrink-0">
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-[var(--color-border)]">
                 <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndex}
-                    className="absolute inset-0"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Image
-                      src={SLIDES[activeIndex].imageUrl}
-                      alt={SLIDES[activeIndex].title}
-                      fill
-                      className="object-cover"
-                      sizes="420px"
-                    />
+                  <motion.div key={activeIndex} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+                    <Image src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover" sizes="420px" />
                   </motion.div>
                 </AnimatePresence>
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent z-10">
@@ -121,46 +97,24 @@ function DesktopView() {
   );
 }
 
-// ─── Mobile: simple list — no carousel, no animation overhead ────────────────
+// ─── Mobile ───────────────────────────────────────────────────────────────────
 function MobileView() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <div className="px-5 py-12 w-full">
       <div className="mb-8 text-center">
-        <SectionHeading
-          eyebrow="Our Expertise"
-          title="Comprehensive Dental Solutions"
-          description="From routine check-ups to complex full-mouth rehabilitations."
-          alignment="center"
-        />
+        <SectionHeading eyebrow="Our Expertise" title="Comprehensive Dental Solutions" description="From routine check-ups to complex full-mouth rehabilitations." alignment="center" />
       </div>
-
-      {/* Image */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-[var(--color-border)] mb-5">
-        <Image
-          src={SLIDES[activeIndex].imageUrl}
-          alt={SLIDES[activeIndex].title}
-          fill
-          className="object-cover transition-opacity duration-300"
-          sizes="100vw"
-        />
-        {/* Prev / Next */}
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg mb-5">
+        <Image src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover transition-opacity duration-300" sizes="100vw" />
         <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
-          <button
-            onClick={() => setActiveIndex((i) => Math.max(0, i - 1))}
-            disabled={activeIndex === 0}
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30 transition-opacity"
-            aria-label="Previous"
-          >
+          <button onClick={() => setActiveIndex((i) => Math.max(0, i - 1))} disabled={activeIndex === 0}
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30" aria-label="Previous">
             <CaretLeft weight="bold" size={20} />
           </button>
-          <button
-            onClick={() => setActiveIndex((i) => Math.min(SLIDES.length - 1, i + 1))}
-            disabled={activeIndex === SLIDES.length - 1}
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30 transition-opacity"
-            aria-label="Next"
-          >
+          <button onClick={() => setActiveIndex((i) => Math.min(SLIDES.length - 1, i + 1))} disabled={activeIndex === SLIDES.length - 1}
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30" aria-label="Next">
             <CaretRight weight="bold" size={20} />
           </button>
         </div>
@@ -168,19 +122,15 @@ function MobileView() {
           {SLIDES.map((_, i) => (
             <button key={i} onClick={() => setActiveIndex(i)}
               className={`h-1.5 rounded-full transition-all duration-200 ${i === activeIndex ? "w-5 bg-white" : "w-1.5 bg-white/50"}`}
-              aria-label={`Go to ${SLIDES[i].title}`}
-            />
+              aria-label={`Go to ${SLIDES[i].title}`} />
           ))}
         </div>
       </div>
-
-      {/* Info card — no AnimatePresence, just CSS transition */}
       <div className="bg-white rounded-2xl border border-[var(--color-border)] p-5 shadow-sm">
         <span className="text-xs font-mono text-[var(--color-primary)]">{String(activeIndex + 1).padStart(2, "0")} / {SLIDES.length}</span>
         <h3 className="text-xl font-bold text-[var(--color-text-primary)] mt-1 mb-2 tracking-tight">{SLIDES[activeIndex].title}</h3>
         <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{SLIDES[activeIndex].shortDescription}</p>
       </div>
-
       <a href="/services" className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline">
         View all 12+ treatments →
       </a>
@@ -190,7 +140,7 @@ function MobileView() {
 
 export function ServicesOverview() {
   return (
-    <section className="bg-[var(--color-bg)]">
+    <section className="section-teal-wash">
       <div className="hidden md:block"><DesktopView /></div>
       <div className="md:hidden"><MobileView /></div>
     </section>
