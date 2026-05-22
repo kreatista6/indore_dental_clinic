@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { CLINIC_NAME } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: `Dental Treatments in Indore | ${CLINIC_NAME}`,
+  description: `Explore all dental treatments at ${CLINIC_NAME} in Indore — implants, smile makeovers, root canals, braces, veneers, whitening and more. Book a consultation today.`,
+};
 
 export default function ServicesPage() {
   return (
