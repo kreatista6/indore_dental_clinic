@@ -16,18 +16,17 @@ const ToothModel = dynamic(
 export function Hero() {
   return (
     <section className="relative min-h-[85dvh] w-full flex items-start md:items-center bg-[var(--color-bg)] overflow-hidden">
-      {/* Mobile background image — shown only below lg */}
+      {/* Mobile background image — real clinic home photo */}
       <div className="absolute inset-0 z-0 lg:hidden">
         <Image
-          src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop"
-          alt=""
+          src="/clinic/home.jpg"
+          alt="Indore Dental Hospital"
           fill
           className="object-cover object-center"
           priority
           fetchPriority="high"
           sizes="100vw"
         />
-        {/* Gradient overlay so text is readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/70" />
       </div>
 
@@ -125,7 +124,7 @@ export function Hero() {
           <div className="relative h-full w-full hidden lg:block">
             <div className="relative h-[560px] w-full rounded-[2.5rem] overflow-hidden shadow-[var(--shadow-float)] border-[6px] border-white bg-gray-100">
               <Image
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop"
+                src="/clinic/home.jpg"
                 alt="Indore Dental Hospital"
                 fill
                 className="object-cover"

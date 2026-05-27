@@ -18,7 +18,7 @@ export function DoctorSection() {
               <div className="absolute -inset-3 md:-inset-6 bg-[var(--color-primary-light)] rounded-[2.5rem] -z-10 rotate-[-2deg] transform-gpu" />
               <div className="relative aspect-[3/4] w-full max-w-xs mx-auto lg:max-w-none rounded-[2rem] overflow-hidden shadow-[var(--shadow-float)] border-[6px] border-white bg-gray-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop"
+                  src="/doctor/portrait.jpg"
                   alt={DOCTOR.nameEn}
                   fill
                   className="object-cover object-top"
