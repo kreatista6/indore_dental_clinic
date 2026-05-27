@@ -6,7 +6,7 @@ import { FacebookLogo, InstagramLogo, TwitterLogo, MapPin, Phone, Envelope } fro
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden bg-[var(--color-primary)] text-white pt-24 pb-12">
+    <footer className="relative overflow-hidden bg-[var(--color-primary)] text-white pt-24 pb-12">
       {/* Background abstract shape */}
       <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white/5 blur-3xl pointer-events-none" />
       

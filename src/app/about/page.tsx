@@ -10,21 +10,25 @@ export default function AboutPage() {
     <div className="pb-12">
 
       {/* ── Hero banner ─────────────────────────────────────────────────── */}
-      <section className="relative h-[32vh] md:h-[50vh] min-h-[240px] flex items-end overflow-hidden">
-      <Image
-          src="/doctor/banner.jpg"
-          alt={`${DOCTOR.nameEn} — ${CLINIC_NAME}`}
-          fill
-          className="object-cover md:object-cover object-[center_top] md:object-top"
-          priority
-          sizes="100vw"
-      />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8 pb-8 text-white">
-          {/* <h1 className="text-3xl md:text-6xl font-bold mb-1">{CLINIC_NAME}</h1>
-          <p className="text-base md:text-lg text-white/80">Setting the standard for premium, pain-free dental care in Central India.</p> */}
-        </div>
-      </section>
+<section>
+  {/* Image strip */}
+  <div className="relative w-full h-[40vw] min-h-[200px] md:h-[50vh]">
+    <Image
+      src="/doctor/banner.jpg"
+      alt={`${DOCTOR.nameEn} — ${CLINIC_NAME}`}
+      fill
+      className="object-cover object-[center_20%] md:object-top"
+      priority
+      sizes="100vw"
+    />
+  </div>
+
+  {/* Clean text block below image on mobile, hidden on desktop */}
+  <div className="md:hidden bg-[var(--color-primary)] px-5 py-4 text-white">
+    <h1 className="text-xl font-bold">{CLINIC_NAME}</h1>
+    <p className="text-sm text-white/80 mt-1">Premium, pain-free dental care in Central India.</p>
+  </div>
+</section>
 
       {/* ── Stats strip ─────────────────────────────────────────────────── */}
       <section className="bg-white border-b border-[var(--color-border)]">
