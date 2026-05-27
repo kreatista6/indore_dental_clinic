@@ -10,19 +10,19 @@ export default function AboutPage() {
     <div className="pb-12">
 
       {/* ── Hero banner ─────────────────────────────────────────────────── */}
-      <section className="relative h-[50vh] min-h-[320px] flex items-end overflow-hidden">
-        <Image
+      <section className="relative h-[32vh] md:h-[50vh] min-h-[240px] flex items-end overflow-hidden">
+      <Image
           src="/doctor/banner.jpg"
           alt={`${DOCTOR.nameEn} — ${CLINIC_NAME}`}
           fill
-          className="object-cover object-top"
+          className="object-cover md:object-cover object-[center_top] md:object-top"
           priority
           sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8 pb-10 text-white">
-          {/* <h1 className="text-4xl md:text-6xl font-bold mb-2">{CLINIC_NAME}</h1>
-          <p className="text-lg text-white/80">Setting the standard for premium, pain-free dental care in Central India.</p> */}
+      />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8 pb-8 text-white">
+          {/* <h1 className="text-3xl md:text-6xl font-bold mb-1">{CLINIC_NAME}</h1>
+          <p className="text-base md:text-lg text-white/80">Setting the standard for premium, pain-free dental care in Central India.</p> */}
         </div>
       </section>
 
@@ -31,7 +31,15 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {TRUST_STATS.map((stat, i) => (
-              <div key={i} className={`flex flex-col items-center text-center py-8 px-4 ${i % 2 === 0 ? "border-r border-[var(--color-border)]" : ""} ${i < 2 ? "border-b border-[var(--color-border)] md:border-b-0" : ""} ${i < 3 ? "md:border-r md:border-[var(--color-border)]" : ""}`}>
+              <div
+                key={i}
+                className={[
+                  "flex flex-col items-center text-center py-8 px-4",
+                  i % 2 === 0 ? "border-r border-[var(--color-border)]" : "",
+                  i < 2 ? "border-b border-[var(--color-border)] md:border-b-0" : "",
+                  i < 3 ? "md:border-r md:border-[var(--color-border)]" : "",
+                ].join(" ")}
+              >
                 <span className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] tabular-nums">{stat.value}{stat.suffix}</span>
                 <span className="text-xs md:text-sm text-[var(--color-text-muted)] mt-1 font-medium">{stat.label}</span>
               </div>
@@ -52,15 +60,9 @@ export default function AboutPage() {
             <ScrollReveal>
               <SectionHeading eyebrow="Our Story" title="A Legacy of Excellence" />
               <div className="mt-5 space-y-4 text-lg text-[var(--color-text-muted)]">
-                <p>
-                  Founded in 2012 with a vision to revolutionize dental care in Indore, {CLINIC_NAME} combines state-of-the-art technology with compassionate, patient-first care.
-                </p>
-                <p>
-                  We understand that visiting the dentist can be daunting. That&apos;s why we&apos;ve engineered every aspect of our clinic — from the soothing ambiance to the painless injection systems — to ensure your complete comfort.
-                </p>
-                <p>
-                  Today, with over 25,000 successful treatments and 15,000+ happy patients, we are Indore&apos;s most trusted destination for advanced dental care.
-                </p>
+                <p>Founded in 2012 with a vision to revolutionize dental care in Indore, {CLINIC_NAME} combines state-of-the-art technology with compassionate, patient-first care.</p>
+                <p>We understand that visiting the dentist can be daunting. That&apos;s why we&apos;ve engineered every aspect of our clinic — from the soothing ambiance to the painless injection systems — to ensure your complete comfort.</p>
+                <p>Today, with over 25,000 successful treatments and 15,000+ happy patients, we are Indore&apos;s most trusted destination for advanced dental care.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -88,8 +90,8 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal width="100%">
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative aspect-[2/4] rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
-                  <Image src="/doctor/doctor-1.jpg" alt={DOCTOR.nameEn} fill className="object-cover object-top" sizes="800px" />
+                <div className="relative aspect-[2/4] rounded-2xl overflow-hidden shadow-lg">
+                  <Image src="/doctor/doctor-1.jpg" alt={DOCTOR.nameEn} fill className="object-cover object-top" sizes="300px" />
                 </div>
                 <div className="flex flex-col gap-4">
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md">
@@ -112,13 +114,12 @@ export default function AboutPage() {
             <SectionHeading eyebrow="Our Clinic" title="World-Class Facilities" alignment="center" className="mb-10" />
           </ScrollReveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
+            {([
               { src: "/clinic/interior-1.jpg", alt: "Clinic Interior", tall: true },
               { src: "/clinic/equipment.jpg", alt: "Advanced Equipment", tall: false },
               { src: "/clinic/patient.jpg", alt: "Patient Care", tall: true },
               { src: "/clinic/pharmacy.jpg", alt: "Pharmacy", tall: false },
-
-            ].map((img, i) => (
+            ] as { src: string; alt: string; tall: boolean }[]).map((img, i) => (
               <ScrollReveal key={i} delay={i * 0.05} width="100%" className={img.tall ? "row-span-2" : ""}>
                 <div className={`relative w-full rounded-2xl overflow-hidden shadow-sm ${img.tall ? "h-full min-h-[300px]" : "aspect-square"}`}>
                   <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 50vw, 25vw" />
