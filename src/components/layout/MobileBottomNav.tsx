@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { House, Stethoscope, Images } from "lucide-react";
+import { House, Stethoscope, Images, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/", icon: House },
   { label: "Services", href: "/services", icon: Stethoscope },
   { label: "Gallery", href: "/smile-gallery", icon: Images },
+  { label: "About", href: "/about", icon: User },
 ];
 
 export function MobileBottomNav() {
@@ -37,12 +38,7 @@ export function MobileBottomNav() {
           );
         })}
 
-        <Link
-          href="/contact"
-          className="flex items-center gap-1.5 rounded-full bg-[var(--color-primary)] text-white px-5 py-2.5 text-sm font-semibold shadow-md hover:bg-[var(--color-primary-dark)] transition-colors"
-        >
-          Book Visit
-        </Link>
+
       </div>
     </nav>
   );
