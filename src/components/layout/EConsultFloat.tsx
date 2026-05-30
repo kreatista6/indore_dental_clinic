@@ -61,7 +61,7 @@ export function EConsultFloat() {
       {/* ── Floating trigger button ─────────────────────────────────── */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-24 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[var(--color-primary)]/50"
+        className="fixed bottom-20 md:bottom-6 right-24 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[var(--color-primary)]/50"
         aria-label="Free E-Consultation"
       >
         <span className="absolute inset-0 z-[-1] rounded-full bg-[var(--color-primary)] animate-ping opacity-50 duration-1000" />

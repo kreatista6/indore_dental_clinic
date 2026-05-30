@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { EConsultFloat } from "@/components/layout/EConsultFloat";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { CLINIC_NAME } from "@/lib/constants";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -76,10 +77,11 @@ export default function RootLayout({
       </head>
       <body className="antialiased min-h-screen flex flex-col relative selection:bg-[var(--color-primary)] selection:text-white">
         <Navbar />
-        <main className="flex-1 pt-24 w-full max-w-full">
+        <main className="flex-1 pt-24 pb-16 md:pb-0 w-full max-w-full">
           {children}
         </main>
         <Footer />
+        <MobileBottomNav />
         <WhatsAppFloat />
         <EConsultFloat />
       </body>
