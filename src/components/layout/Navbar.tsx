@@ -63,7 +63,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -71,7 +71,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
+                    "relative text-base font-medium transition-colors hover:text-[var(--color-primary)]",
                     isActive ? "text-[var(--color-primary)]" : "text-[var(--color-text-muted)]"
                   )}
                 >
@@ -94,22 +94,22 @@ export function Navbar() {
               href={`https://wa.me/${CLINIC_PHONE.replace(/[^0-9]/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:underline mr-2"
+              className="hidden lg:flex items-center gap-2 text-base font-semibold text-[var(--color-primary)] hover:underline mr-3"
             >
-              <PhoneCall className="h-4 w-4" />
+              <PhoneCall className="h-5 w-5" />
               {CLINIC_PHONE}
             </a>
 
-            <Button asChild size="sm" className="hidden sm:inline-flex text-xs md:text-sm px-3 md:px-4">
+            <Button asChild size="default" className="hidden sm:inline-flex text-sm md:text-base px-4 md:px-5">
               <Link href="/contact">Book Visit</Link>
             </Button>
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)] lg:hidden"
               aria-label="Open menu"
             >
-              <List className="h-5 w-5" />
+              <List className="h-6 w-6" />
             </button>
           </div>
         </div>
@@ -136,10 +136,10 @@ export function Navbar() {
                 </Link>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)]"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)]"
                   aria-label="Close menu"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-6 w-6" />
                 </button>
               </div>
 
@@ -150,7 +150,7 @@ export function Navbar() {
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
-                      "text-2xl font-bold tracking-tight py-3 border-b border-[var(--color-border)] transition-colors",
+                      "text-3xl font-bold tracking-tight py-4 border-b border-[var(--color-border)] transition-colors",
                       pathname === link.href
                         ? "text-[var(--color-primary)]"
                         : "text-[var(--color-text-primary)]"
@@ -167,11 +167,11 @@ export function Navbar() {
                   href={`https://wa.me/${CLINIC_PHONE.replace(/[^0-9]/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[var(--color-primary)] text-[var(--color-primary)] font-semibold py-3 px-6"
+                  className="flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold py-4 px-6 text-lg"
                 >
-                  <PhoneCall className="h-4 w-4" /> {CLINIC_PHONE}
+                  <PhoneCall className="h-5 w-5" /> {CLINIC_PHONE}
                 </a>
-                <Button asChild size="lg" className="w-full">
+                <Button asChild size="lg" className="w-full text-lg py-4">
                   <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                     Book Appointment
                   </Link>

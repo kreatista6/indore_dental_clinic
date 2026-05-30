@@ -7,10 +7,10 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="pb-12">
+    <div>
 
       {/* ── Hero banner ─────────────────────────────────────────────────── */}
-<section>
+<section className="-mt-24 pt-24 bg-[#235b7a]">
   {/* Image strip */}
   <div className="relative w-full h-[40vw] min-h-[200px] md:h-[50vh]">
     <Image
@@ -135,13 +135,16 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section className="py-14 bg-[var(--color-primary)] text-white text-center">
-        <div className="mx-auto max-w-2xl px-5">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Smile?</h2>
-          <p className="text-white/80 mb-8 text-lg">Book a consultation with Dr. Sugandh and experience the difference.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-full hover:bg-white/90 transition-colors text-base">
-            Book Consultation
-          </Link>
+      <section className="py-14 md:py-20 bg-[var(--color-bg)] relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-bl from-[var(--color-primary-light)] to-transparent opacity-50 pointer-events-none" />
+        <div className="mx-auto max-w-4xl px-5 md:px-8 relative z-10">
+          <div className="bg-[var(--color-primary)] text-white text-center rounded-[2rem] p-8 md:p-14 shadow-[var(--shadow-float)] border border-[var(--color-primary-dark)]/20">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Smile?</h2>
+            <p className="text-white/80 mb-8 text-lg max-w-xl mx-auto">Book a consultation with Dr. Sugandh and experience the difference.</p>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-full hover:bg-white/90 transition-colors text-base shadow-lg">
+              Book Consultation
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -7,7 +7,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Permanent, natural-looking tooth replacements that restore function and confidence.",
     description: "Dental implants are the gold standard for replacing missing teeth. At Indore Dental Hospital, we use advanced 3D CBCT scanning and computer-guided surgery to place premium titanium implants with extreme precision. The result is a permanent, natural-looking replacement that functions exactly like your real tooth, preventing bone loss and restoring your perfect smile.",
     icon: "implant",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/dental-implants.jpg",
     category: "restorative",
     featured: true,
     benefits: [
@@ -53,7 +53,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "A comprehensive cosmetic transformation designed perfectly for your facial proportions.",
     description: "A Digital Smile Makeover is a custom-designed treatment plan combining multiple cosmetic procedures to achieve your dream smile. Using Digital Smile Design (DSD) technology, we analyze your facial proportions, lips, and teeth to design a smile that perfectly complements your unique features. You even get to 'test drive' your new smile before we begin any actual treatment.",
     icon: "sparkles",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/smile-makeover.jpg",
     category: "cosmetic",
     featured: true,
     benefits: [
@@ -99,7 +99,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Advanced endodontic treatment to save severely infected teeth comfortably.",
     description: "Gone are the days of painful root canals. We utilize rotary endodontics, apex locators, and surgical microscopes to perform root canals with extreme precision and absolute zero pain. This treatment saves a tooth that is badly decayed or infected by removing the infected nerve tissue, cleaning the canal, and sealing it to prevent future issues.",
     icon: "microscope",
-    heroImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/root-canal.jpg",
     category: "restorative",
     featured: false,
     benefits: [
@@ -145,7 +145,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Professional, safe, and highly effective whitening for a brilliantly bright smile.",
     description: "Achieve a noticeably whiter smile in just one hour with our professional in-office whitening system. Unlike over-the-counter products that can damage enamel or cause severe sensitivity, our clinical-grade whitening uses specialized light-activated gels and protective barriers to safely lift deep stains caused by coffee, tea, tobacco, and aging.",
     icon: "sun",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/teeth-whitening.jpg",
     category: "cosmetic",
     featured: false,
     benefits: [

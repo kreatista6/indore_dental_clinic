@@ -29,21 +29,19 @@ export default function ServicesPage() {
       <section className="py-8">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES_DATA.map((service, i) => (
-              <ScrollReveal key={service.slug} delay={i * 0.05}>
-                <Link href={`/services/${service.slug}`} className="group block h-full cursor-pointer">
-                  <div className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all h-full flex flex-col">
-                    <div className="h-40 w-full relative overflow-hidden">
-                      <Image src={service.heroImage} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="p-5 flex flex-col flex-1 items-center text-center">
-                      <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{service.title}</h3>
-                      <p className="text-sm text-[var(--color-text-muted)] mb-4 flex-1">{service.shortDescription}</p>
-                      <span className="text-[var(--color-primary)] font-semibold text-sm mt-auto group-hover:underline">Learn More →</span>
-                    </div>
+            {SERVICES_DATA.slice(0, 6).map((service) => (
+              <Link key={service.slug} href={`/services/${service.slug}`} className="group block h-full cursor-pointer">
+                <div className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all h-full flex flex-col">
+                  <div className="h-40 w-full relative overflow-hidden bg-[var(--color-primary-light)]">
+                    <Image src={service.heroImage} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                   </div>
-                </Link>
-              </ScrollReveal>
+                  <div className="p-5 flex flex-col flex-1 items-center text-center">
+                    <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{service.title}</h3>
+                    <p className="text-sm text-[var(--color-text-muted)] mb-4 flex-1">{service.shortDescription}</p>
+                    <span className="text-[var(--color-primary)] font-semibold text-sm mt-auto group-hover:underline">Learn More →</span>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

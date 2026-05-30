@@ -70,16 +70,12 @@ function DesktopView() {
                 );
               })}
               <a href="/services" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline">
-                View all 12+ treatments →
+                View all 5+ treatments →
               </a>
             </div>
             <div className="w-[340px] lg:w-[420px] shrink-0">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-[var(--color-border)]">
-                <AnimatePresence mode="wait">
-                  <motion.div key={activeIndex} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
-                    <Image src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover" sizes="420px" />
-                  </motion.div>
-                </AnimatePresence>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-[var(--color-primary-light)]">
+                <Image key={activeIndex} src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover" sizes="420px" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent z-10">
                   <p className="text-white font-semibold text-base">{SLIDES[activeIndex].title}</p>
                 </div>
@@ -106,18 +102,12 @@ function MobileView() {
       <div className="mb-8 text-center">
         <SectionHeading eyebrow="Our Expertise" title="Comprehensive Dental Solutions" description="From routine check-ups to complex full-mouth rehabilitations." alignment="center" />
       </div>
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg mb-5">
-        <Image src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover transition-opacity duration-300" sizes="100vw" />
-        <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
-          <button onClick={() => setActiveIndex((i) => Math.max(0, i - 1))} disabled={activeIndex === 0}
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30" aria-label="Previous">
-            <CaretLeft weight="bold" size={20} />
-          </button>
-          <button onClick={() => setActiveIndex((i) => Math.min(SLIDES.length - 1, i + 1))} disabled={activeIndex === SLIDES.length - 1}
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[var(--color-primary)] shadow-md disabled:opacity-30" aria-label="Next">
-            <CaretRight weight="bold" size={20} />
-          </button>
-        </div>
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg mb-3 bg-[var(--color-primary-light)]">
+        <AnimatePresence mode="wait">
+          <motion.div key={activeIndex} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
+            <Image src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover" sizes="(max-width: 768px) 90vw, 100vw" />
+          </motion.div>
+        </AnimatePresence>
         <div className="absolute bottom-3 left-0 right-0 flex gap-1.5 justify-center">
           {SLIDES.map((_, i) => (
             <button key={i} onClick={() => setActiveIndex(i)}
@@ -126,13 +116,23 @@ function MobileView() {
           ))}
         </div>
       </div>
-      <div className="bg-white rounded-2xl border border-[var(--color-border)] p-5 shadow-sm">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <button onClick={() => setActiveIndex((i) => Math.max(0, i - 1))} disabled={activeIndex === 0}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-md disabled:opacity-30" aria-label="Previous">
+          <CaretLeft weight="bold" size={18} />
+        </button>
+        <div className="flex-1 bg-white rounded-2xl border border-[var(--color-border)] p-5 shadow-sm">
         <span className="text-xs font-mono text-[var(--color-primary)]">{String(activeIndex + 1).padStart(2, "0")} / {SLIDES.length}</span>
         <h3 className="text-xl font-bold text-[var(--color-text-primary)] mt-1 mb-2 tracking-tight">{SLIDES[activeIndex].title}</h3>
         <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{SLIDES[activeIndex].shortDescription}</p>
       </div>
+        <button onClick={() => setActiveIndex((i) => Math.min(SLIDES.length - 1, i + 1))} disabled={activeIndex === SLIDES.length - 1}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-md disabled:opacity-30" aria-label="Next">
+          <CaretRight weight="bold" size={18} />
+        </button>
+      </div>
       <a href="/services" className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline">
-        View all 12+ treatments →
+        View all 5+ treatments →
       </a>
     </div>
   );
