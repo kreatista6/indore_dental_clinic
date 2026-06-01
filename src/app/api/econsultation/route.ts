@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-import { smtpConfig, clinicEmail } from "@/lib/env";
+import { Resend } from "resend";
 
 export async function POST(req: Request) {
   try {
@@ -12,52 +11,40 @@ export async function POST(req: Request) {
     const concern = (formData.get("concern") as string) ?? "";
     const selfie  = formData.get("selfie") as File | null;
 
-    if (!name || name.length < 2)  return NextResponse.json({ error: "Name is required" },    { status: 400 });
+    if (!name || name.length < 2)    return NextResponse.json({ error: "Name is required" },    { status: 400 });
     if (!phone || phone.length < 10) return NextResponse.json({ error: "Valid phone required" }, { status: 400 });
-    if (!concern)                  return NextResponse.json({ error: "Concern is required" },  { status: 400 });
+    if (!concern)                    return NextResponse.json({ error: "Concern is required" },  { status: 400 });
 
-    const transporter = nodemailer.createTransport({
-      host:   smtpConfig.host,
-      port:   smtpConfig.port,
-      secure: smtpConfig.secure,
-      auth:   { user: smtpConfig.auth.user, pass: smtpConfig.auth.pass },
-    });
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const toEmail = process.env.CLINIC_EMAIL || "indoredentalhospital@gmail.com";
 
-    try {
-      await transporter.verify();
-    } catch {
-      return NextResponse.json({ error: "Email service configuration error" }, { status: 500 });
-    }
-
-    const toEmail = clinicEmail || smtpConfig.auth.user;
-
-    // Build attachments array if selfie was uploaded
-    const attachments: nodemailer.SendMailOptions["attachments"] = [];
+    // Build attachments if selfie provided
+    const attachments: { filename: string; content: Buffer }[] = [];
     if (selfie && selfie.size > 0) {
       const buffer = Buffer.from(await selfie.arrayBuffer());
-      attachments.push({
-        filename: selfie.name || "selfie.jpg",
-        content:  buffer,
-        contentType: selfie.type || "image/jpeg",
-      });
+      attachments.push({ filename: selfie.name || "selfie.jpg", content: buffer });
     }
 
-    const htmlContent = `
-      <h2 style="color:#0d6e6e;">New E-Consultation Request</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Email:</strong> ${email || "Not provided"}</p>
-      <p><strong>Dental Concern:</strong><br/>${concern}</p>
-      ${selfie && selfie.size > 0 ? "<p><strong>Selfie:</strong> Attached below</p>" : "<p><strong>Selfie:</strong> Not provided</p>"}
-    `;
-
-    await transporter.sendMail({
-      from:        `"${smtpConfig.fromName}" <${smtpConfig.fromEmail || smtpConfig.auth.user}>`,
-      to:          toEmail,
-      subject:     `E-Consultation Request: ${name}`,
-      html:        htmlContent,
+    await resend.emails.send({
+      from: "Indore Dental Hospital <onboarding@resend.dev>",
+      to: toEmail,
+      ...(email ? { replyTo: email } : {}),
+      subject: `E-Consultation Request: ${name}`,
       attachments,
-      replyTo:     email || undefined,
+      html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
+          <h2 style="color:#0d7377;margin-top:0;">New E-Consultation Request</h2>
+          <table style="width:100%;border-collapse:collapse;">
+            <tr><td style="padding:8px 0;color:#6b7280;width:140px;">Name</td><td style="padding:8px 0;font-weight:600;">${name}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;">Phone</td><td style="padding:8px 0;font-weight:600;">${phone}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;">Email</td><td style="padding:8px 0;">${email || "Not provided"}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;vertical-align:top;">Concern</td><td style="padding:8px 0;">${concern}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;">Photo</td><td style="padding:8px 0;">${selfie && selfie.size > 0 ? "Attached" : "Not provided"}</td></tr>
+          </table>
+          <hr style="border:none;border-top:1px solid #e5e7eb;margin:20px 0;" />
+          <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from Indore Dental Hospital website — E-Consultation form</p>
+        </div>
+      `,
     });
 
     return NextResponse.json({ success: true }, { status: 200 });
