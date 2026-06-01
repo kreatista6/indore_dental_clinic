@@ -94,8 +94,8 @@ export function EConsultFloat() {
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--color-border)] bg-[var(--color-primary-light)]">
                 <div>
-                  <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Free E-Consultation</h2>
-                  <p className="text-sm text-[var(--color-text-muted)]">Get expert advice without visiting the clinic</p>
+                  <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Not Ready to Visit Yet? Talk to Us Online.</h2>
+                  <p className="text-sm text-[var(--color-text-muted)]">Share your dental concern and Dr. Shrivastava&apos;s team will review it and get back to you with guidance — from the comfort of your home.</p>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
@@ -113,9 +113,9 @@ export function EConsultFloat() {
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
                       <CheckCircle size={36} />
                     </div>
-                    <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Request Received!</h3>
+                    <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Thank You for Reaching Out!</h3>
                     <p className="text-[var(--color-text-muted)] max-w-xs">
-                      Our dentist will review your details and get back to you within 24 hours.
+                      We&apos;ve received your concern and our team will review it shortly. Dr. Shrivastava&apos;s team will contact you within 24 hours with guidance and next steps. Your smile is in good hands!
                     </p>
                   </div>
                 ) : (
@@ -170,7 +170,7 @@ export function EConsultFloat() {
                         onChange={handleChange}
                         required
                         rows={4}
-                        placeholder="E.g. I have a broken tooth, pain in my upper left molar, want to know about implant options..."
+                        placeholder="E.g. I have a toothache on the lower left side for the past 3 days, or I'm interested in getting a smile makeover — please describe your concern in as much detail as you're comfortable sharing..."
                         className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40"
                       />
                     </div>

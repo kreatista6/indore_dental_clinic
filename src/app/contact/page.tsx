@@ -7,10 +7,10 @@ export default function ContactPage() {
       <section className="bg-[var(--color-bg)] py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-3">
-            Get in Touch
+            We&apos;d Love to Hear From You
           </h1>
           <p className="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
-            We&apos;re here to answer any questions you have. Book a consultation or reach out to our support team.
+            Book an appointment, ask us a question, or just come in for a chat — we&apos;re always happy to help.
           </p>
         </div>
       </section>

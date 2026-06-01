@@ -7,7 +7,7 @@ import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 export function WhatsAppFloat() {
   const url = getWhatsAppUrl(
     publicConfig.whatsappNumber,
-    "Hello! I'd like to book an appointment at Indore Dental Hospital. Please let me know the available slots."
+    "Hello! I'd like to book an appointment at Indore Dental Hospital. Please let me know the available slots. 😊"
   );
 
   return (

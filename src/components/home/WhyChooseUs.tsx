@@ -8,32 +8,32 @@ const features = [
   {
     icon: <Microscope className="h-8 w-8" />,
     title: "Advanced 3D Technology",
-    description: "Equipped with CBCT scanners and digital impression systems for pinpoint accuracy."
+    description: "We use cutting-edge digital X-rays, 3D scanning, and CAD/CAM technology for diagnoses and treatments that are precise, faster, and more accurate than ever."
   },
   {
     icon: <ShieldCheck className="h-8 w-8" />,
-    title: "Strict Sterilization",
-    description: "Class-B autoclaves and disposable barriers ensure 100% cross-infection control."
+    title: "Strict Sterilization Protocol",
+    description: "Every instrument is sterilized to hospital-grade standards after each patient. Your safety is never compromised — not even once."
   },
   {
     icon: <HeartHandshake className="h-8 w-8" />,
     title: "Pain-Free Approach",
-    description: "Modern anesthetics and conscious sedation make treatments completely comfortable."
+    description: "From topical numbing gels to the latest anaesthesia techniques, we ensure every visit is as comfortable and anxiety-free as possible."
   },
   {
     icon: <Medal className="h-8 w-8" />,
     title: "Premium Materials",
-    description: "We use only globally certified, long-lasting ceramics and titanium implants."
+    description: "We use only internationally certified dental materials — from Swiss implants to German ceramic — so your results look great and last for years."
   },
   {
     icon: <Clock className="h-8 w-8" />,
     title: "Zero Wait Time",
-    description: "Respecting your time with strictly managed, delay-free appointment schedules."
+    description: "Your time is valuable. We run a strict appointment system so you're seen on time, every time — no long waiting room delays."
   },
   {
     icon: <Stethoscope className="h-8 w-8" />,
-    title: "Emergency Care",
-    description: "Priority scheduling for severe toothaches, trauma, or urgent dental issues."
+    title: "Emergency Dental Care",
+    description: "Toothache at midnight? Broken tooth before an important meeting? We offer same-day emergency care for patients who need us most."
   }
 ];
 

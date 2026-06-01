@@ -38,24 +38,24 @@ export const TRUST_STATS: StatItem[] = [
 
 export const COMMON_FAQS: FAQ[] = [
   {
-    question: "Do you offer emergency dental services?",
-    answer: "Yes, we provide emergency dental care during our regular business hours and have an on-call doctor for severe after-hours dental emergencies. Please call our emergency helpline immediately."
+    question: "Is the treatment painful at Indore Dental Hospital?",
+    answer: "Absolutely not. We use the latest pain-free anaesthesia techniques and numbing protocols before any procedure. Most of our patients are pleasantly surprised by how comfortable their experience is — even for treatments like root canals and implants."
   },
   {
-    question: "How often should I visit the dentist?",
-    answer: "For most patients, we recommend a routine check-up and professional cleaning every 6 months. However, if you have specific gum conditions or orthodontic appliances, we may suggest more frequent visits."
+    question: "How do I book an appointment?",
+    answer: "You can book via our website's appointment form, call us directly at +91 9977788837, or send us a WhatsApp message. We typically confirm your slot within a few hours and maintain zero waiting time for scheduled appointments."
   },
   {
-    question: "Do you offer flexible payment plans?",
-    answer: "Absolutely. We believe premium dental care should be accessible. We offer EMI options on major credit cards and partner with healthcare finance providers for zero-interest payment plans on comprehensive treatments."
+    question: "How much do dental treatments cost in Indore?",
+    answer: "Our treatments are priced to offer premium quality at fair, transparent costs. We provide a detailed treatment plan with full pricing before starting any procedure — no hidden charges, ever. We also offer flexible payment options for longer treatments."
   },
   {
-    question: "Is dental implant surgery painful?",
-    answer: "Most patients report that getting a dental implant is less uncomfortable than a tooth extraction. We use advanced local anesthesia and offer conscious sedation options to ensure a completely pain-free, relaxed experience."
+    question: "What makes Indore Dental Hospital different from other clinics?",
+    answer: "Dr. Shrivastava's international training (USA, Israel, Karnataka), our hospital-grade sterilization, 3D digital technology, and 14+ years of trusted care set us apart. We've helped over 15,000 patients — and our results speak for themselves."
   },
   {
-    question: "What safety protocols do you follow?",
-    answer: "We adhere strictly to international sterilization standards. Our clinic features a dedicated class-B autoclave sterilization room, disposable barriers, and strict cross-infection control protocols for every patient."
+    question: "Do you treat children as well as adults?",
+    answer: "Yes! We offer dedicated paediatric dental care in a gentle, child-friendly environment. From the first tooth to teenage braces, we make dental visits a positive experience for children of all ages."
   }
 ];
 

@@ -27,7 +27,7 @@ export function DoctorSection() {
               </div>
               <div className="mx-4 mt-4 md:absolute md:-bottom-8 md:right-4 md:mx-0 md:mt-0 glass-panel p-4 rounded-2xl shadow-lg">
                 <p className="text-xs md:text-sm font-medium italic text-[var(--color-text-primary)]">
-                  &quot;My philosophy is simple: treat every patient as if they were my own family. Honesty, precision, and zero pain.&quot;
+                  &quot;My goal is simple — to give every patient the healthy, beautiful smile they deserve, without fear, without pain, and without compromise.&quot;
                 </p>
               </div>
             </div>
@@ -37,7 +37,7 @@ export function DoctorSection() {
           <div className="flex flex-col items-center text-center">
             <ScrollReveal>
               <SectionHeading
-                eyebrow="Meet The Expert"
+                eyebrow="Meet Your Doctor"
                 title={DOCTOR.name}
                 description={DOCTOR.title}
               />
@@ -50,7 +50,7 @@ export function DoctorSection() {
 
             <ScrollReveal delay={0.1} className="mt-4">
               <p className="text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed mb-6">
-                With over a decade of dedicated clinical practice, Dr. Sugandh is renowned in Indore for her meticulous attention to detail and exceptionally gentle approach. She believes that a great smile is a powerful tool for confidence, and every treatment plan is custom-architected for the individual.
+                डॉ. सुगंध श्रीवास्तव (Dr. Sugandh Shrivastava) is one of Indore&apos;s most respected dental specialists, bringing over 14 years of experience and a passion for transforming smiles. He holds an M.D.S. in Prosthodontics, advanced fellowship training from Karnataka and the USA, and a postgraduate certification in Oral Implantology from Israel — making him one of the most internationally trained dentists in Central India. As a Maxillofacial Prosthodontist &amp; Implantologist, he has personally treated over 15,000 patients and completed more than 25,000 successful procedures. His approach combines clinical precision with a warm, patient-first philosophy — so you always feel heard, informed, and at ease.
               </p>
             </ScrollReveal>
 

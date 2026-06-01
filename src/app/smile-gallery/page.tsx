@@ -35,10 +35,10 @@ export default function SmileGalleryPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-3">
-              Smile Gallery
+              Real Smiles. Real Results.
             </h1>
             <p className="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
-              Real patients. Real results. See the life-changing transformations we create every day.
+              Every transformation in our gallery belongs to a real patient who walked in with a concern and left with a smile they&apos;re proud of. Browse our before-and-after results and imagine what we can do for you.
             </p>
           </ScrollReveal>
         </div>

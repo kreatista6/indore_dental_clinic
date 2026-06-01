@@ -17,10 +17,10 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8 text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-3">
-              Our Treatments
+              Comprehensive Dental Care, All Under One Roof
             </h1>
             <p className="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
-              Comprehensive dental solutions performed by specialists using advanced technology.
+              From your child&apos;s first visit to a complete smile transformation — explore our full range of specialist dental treatments in Indore.
             </p>
           </ScrollReveal>
         </div>

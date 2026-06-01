@@ -8,8 +8,10 @@ import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import { CLINIC_NAME, CLINIC_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 
+const ACTIVE_SLUGS = ["dental-implants", "smile-makeover", "root-canal", "teeth-whitening", "braces-orthodontics", "pediatric-dentistry"];
+
 export function generateStaticParams() {
-  return SERVICES_DATA.map((s) => ({ slug: s.slug }));
+  return ACTIVE_SLUGS.map((slug) => ({ slug }));
 }
 
 // ── Unique title + description per service page ───────────────────────────────
@@ -36,6 +38,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
   const service = SERVICES_DATA.find((s) => s.slug === slug);
 
   if (!service) notFound();
+  if (!ACTIVE_SLUGS.includes(service.slug)) notFound();
 
   const relatedServices = SERVICES_DATA.filter((s) => s.slug !== service.slug).slice(0, 5);
 

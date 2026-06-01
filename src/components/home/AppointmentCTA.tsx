@@ -72,8 +72,8 @@ export function AppointmentCTA() {
             <ScrollReveal direction="right">
               <SectionHeading
                 eyebrow="Book Your Visit"
-                title="Ready for your new smile?"
-                description="Schedule a consultation with our experts. We'll listen to your goals and create a personalized plan."
+                title="Ready for a Smile You're Proud Of?"
+                description="Whether it's a routine check-up, a complete smile makeover, or a dental emergency — we're here for you. Book your consultation today and take the first step towards a healthier, more confident smile."
               />
             </ScrollReveal>
 
@@ -104,8 +104,8 @@ export function AppointmentCTA() {
 
               {isSuccess ? (
                 <div className="p-6 rounded-xl bg-[var(--color-success)]/10 text-[var(--color-success)] border border-[var(--color-success)]/20 text-center">
-                  <h4 className="text-lg font-bold mb-2">Request Received!</h4>
-                  <p>Our team will contact you shortly to confirm your appointment time.</p>
+                  <h4 className="text-lg font-bold mb-2">Thank you!</h4>
+                  <p>Your appointment request has been received. Our team will call you within a few hours to confirm your slot. We look forward to welcoming you to Indore Dental Hospital!</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">

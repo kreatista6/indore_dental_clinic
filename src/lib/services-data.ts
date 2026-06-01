@@ -4,8 +4,8 @@ export const SERVICES_DATA: Service[] = [
   {
     slug: "dental-implants",
     title: "Dental Implants",
-    shortDescription: "Permanent, natural-looking tooth replacements that restore function and confidence.",
-    description: "Dental implants are the gold standard for replacing missing teeth. At Indore Dental Hospital, we use advanced 3D CBCT scanning and computer-guided surgery to place premium titanium implants with extreme precision. The result is a permanent, natural-looking replacement that functions exactly like your real tooth, preventing bone loss and restoring your perfect smile.",
+    shortDescription: "Permanent, natural-looking teeth replacements that look, feel, and function just like your own — placed by one of Indore's most experienced implantologists.",
+    description: "A dental implant is a titanium root surgically placed into the jawbone, onto which a custom crown is attached — giving you a tooth that is virtually indistinguishable from a natural one. Unlike dentures or bridges, implants preserve jawbone health, prevent neighbouring teeth from shifting, and restore full chewing and speaking function. They are widely considered the gold standard in tooth replacement worldwide.\n\nAt Indore Dental Hospital, dental implant procedures are performed exclusively by Dr. Sugandh Shrivastava, who holds a Postgraduate Certification in Oral Implantology from Israel and has placed hundreds of implants with exceptional success rates. We use internationally certified, premium-grade implant systems and employ advanced 3D imaging (CBCT scans) to plan each placement with surgical precision — minimising risk and maximising long-term outcomes.\n\nPatients choose us for implants because of our transparent pricing, pain-managed protocols, and comprehensive aftercare. Whether you need a single tooth replaced or a full-mouth restoration, we create a personalised treatment plan so you know exactly what to expect — at every step of your journey.",
     icon: "implant",
     heroImage: "/services/dental-implants.jpg",
     category: "restorative",
@@ -50,8 +50,8 @@ export const SERVICES_DATA: Service[] = [
   {
     slug: "smile-makeover",
     title: "Digital Smile Makeover",
-    shortDescription: "A comprehensive cosmetic transformation designed perfectly for your facial proportions.",
-    description: "A Digital Smile Makeover is a custom-designed treatment plan combining multiple cosmetic procedures to achieve your dream smile. Using Digital Smile Design (DSD) technology, we analyze your facial proportions, lips, and teeth to design a smile that perfectly complements your unique features. You even get to 'test drive' your new smile before we begin any actual treatment.",
+    shortDescription: "A fully personalised smile transformation — designed digitally, so you can see and approve your new smile before a single procedure begins.",
+    description: "A digital smile makeover is a comprehensive cosmetic treatment plan that combines multiple dental procedures — such as veneers, teeth whitening, crowns, aligners, and gum contouring — to transform the overall appearance of your smile. What makes our approach truly special is the use of Digital Smile Design (DSD) technology, which allows us to digitally preview your new smile on a screen before any treatment begins. You see exactly what you'll look like — and we adjust until it's perfect.\n\nAt Indore Dental Hospital, every smile makeover begins with a detailed consultation where Dr. Shrivastava analyses your facial structure, lip line, gum aesthetics, and tooth proportions. The result is not just a beautiful smile — but one that is harmonious, natural-looking, and uniquely yours. We believe your smile should complement your personality, not look like it belongs to someone else.\n\nFrom Bollywood-inspired smile corrections to subtle enhancements that simply make you look refreshed, our team has delivered smile transformations for patients across Indore and beyond. With premium materials, meticulous craftsmanship, and genuine care, we don't just change smiles — we change lives.",
     icon: "sparkles",
     heroImage: "/services/smile-makeover.jpg",
     category: "cosmetic",
@@ -96,8 +96,8 @@ export const SERVICES_DATA: Service[] = [
   {
     slug: "root-canal",
     title: "Painless Root Canal",
-    shortDescription: "Advanced endodontic treatment to save severely infected teeth comfortably.",
-    description: "Gone are the days of painful root canals. We utilize rotary endodontics, apex locators, and surgical microscopes to perform root canals with extreme precision and absolute zero pain. This treatment saves a tooth that is badly decayed or infected by removing the infected nerve tissue, cleaning the canal, and sealing it to prevent future issues.",
+    shortDescription: "Modern root canal therapy that saves your natural tooth — comfortably, quickly, and with virtually no pain.",
+    description: "Root canal treatment has an unfair reputation. The truth is, with modern anaesthesia and advanced techniques, the procedure itself is no more uncomfortable than getting a filling. A root canal becomes necessary when the soft tissue (pulp) inside a tooth becomes infected due to deep decay, a crack, or trauma. Left untreated, this infection spreads, causes severe pain, and can result in tooth loss.\n\nAt Indore Dental Hospital, we perform root canal treatments using the latest rotary endodontic technology — a motorised, highly precise system that cleans and shapes the root canals faster and more thoroughly than traditional hand files. Combined with our pain-managed protocols and effective local anaesthesia, most patients are genuinely surprised by how comfortable the experience is. Many complete the procedure in a single extended appointment.\n\nWe always follow root canal treatment with a high-quality ceramic crown to protect and strengthen the treated tooth, ensuring it lasts for many years. Dr. Shrivastava and his team take the time to explain every step of the process, so you arrive informed and leave relieved — with your natural tooth saved.",
     icon: "microscope",
     heroImage: "/services/root-canal.jpg",
     category: "restorative",
@@ -142,8 +142,8 @@ export const SERVICES_DATA: Service[] = [
   {
     slug: "teeth-whitening",
     title: "Advanced Teeth Whitening",
-    shortDescription: "Professional, safe, and highly effective whitening for a brilliantly bright smile.",
-    description: "Achieve a noticeably whiter smile in just one hour with our professional in-office whitening system. Unlike over-the-counter products that can damage enamel or cause severe sensitivity, our clinical-grade whitening uses specialized light-activated gels and protective barriers to safely lift deep stains caused by coffee, tea, tobacco, and aging.",
+    shortDescription: "Safe, clinically supervised teeth whitening that delivers noticeably brighter results — in as little as one visit.",
+    description: "Over time, teeth naturally accumulate stains from tea, coffee, wine, tobacco, and certain foods — leaving even the healthiest smiles looking dull or discoloured. Professional teeth whitening is the safest and most effective way to reverse this, delivering results that are significantly better than any over-the-counter whitening product.\n\nAt Indore Dental Hospital, we offer in-clinic power whitening using clinically approved, prescription-strength whitening agents that are activated to lift deep stains and brighten your enamel by several shades in a single session. For patients who prefer a more gradual approach, we also offer custom take-home whitening kits with professional-grade trays moulded to your teeth for even, comfortable results.\n\nAll our whitening treatments are supervised by Dr. Shrivastava to ensure your enamel is protected and your results are consistent. We also provide guidance on post-whitening care to extend the brightness of your smile for as long as possible. Because a whiter smile isn't just cosmetic — it's a confidence boost that shows the moment you walk into a room.",
     icon: "sun",
     heroImage: "/services/teeth-whitening.jpg",
     category: "cosmetic",
@@ -188,10 +188,10 @@ export const SERVICES_DATA: Service[] = [
   {
     slug: "braces-orthodontics",
     title: "Braces / Orthodontics",
-    shortDescription: "Straighten your teeth and correct your bite with modern, comfortable orthodontic solutions.",
-    description: "Whether you need traditional metal braces, ceramic clear braces, or modern clear aligners (like Invisalign), our orthodontic treatments are designed to correct misaligned teeth and bite issues. Properly aligned teeth not only give you a stunning smile but also improve your overall oral health by making it easier to clean and reducing jaw strain.",
+    shortDescription: "Straighten your teeth and correct your bite with modern orthodontic solutions — for children, teenagers, and adults alike.",
+    description: "Orthodontic treatment does far more than improve the appearance of your smile — it corrects bite problems, reduces strain on the jaw, makes teeth easier to clean, and improves long-term oral health. Whether you're dealing with crowded teeth, gaps, an overbite, or underbite, the right orthodontic treatment can make a significant difference to both your smile and your quality of life.\n\nAt Indore Dental Hospital, we offer a full range of orthodontic solutions including traditional metal braces, tooth-coloured ceramic braces, and modern clear aligner systems — allowing you to choose the option that best fits your lifestyle and aesthetic preferences. Each treatment begins with a thorough clinical and digital assessment of your teeth, jaw, and bite to design a personalised correction plan with realistic timelines and expected outcomes.\n\nDr. Shrivastava and his team bring the same precision and care to orthodontics that they do to every other treatment. Whether your child needs early intervention or you're an adult considering braces for the first time, we make the process approachable, transparent, and effective. Straighter teeth are closer than you think.",
     icon: "stethoscope",
-    heroImage: "https://images.unsplash.com/photo-1598409377488-81e592751f28?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/braces.jpg",
     category: "orthodontic",
     featured: false,
     benefits: [
@@ -218,10 +218,10 @@ export const SERVICES_DATA: Service[] = [
   {
     slug: "pediatric-dentistry",
     title: "Pediatric Dentistry",
-    shortDescription: "Gentle, fun, and fear-free dental care specifically designed for infants, children, and teens.",
-    description: "We believe a child's first dental visit shapes their lifelong attitude toward oral health. Our pediatric dentistry services focus on preventive care, early cavity detection, and establishing healthy habits in a playful, completely fear-free environment. From fluoride treatments to cavity fillings, we ensure your child feels safe and happy.",
+    shortDescription: "Specialist dental care designed for little ones — gentle, reassuring, and built to make every child feel safe and comfortable at the dentist.",
+    description: "A child's first few visits to the dentist can shape their relationship with oral health for life. That's why we've designed our paediatric dental service to be as welcoming, warm, and fear-free as possible. From the moment a young patient walks into Indore Dental Hospital, our team goes out of their way to make them feel at ease — explaining everything in simple, friendly language and moving at a pace the child is comfortable with.\n\nWe provide comprehensive dental care for children from the time their first tooth erupts through their teenage years. Services include routine check-ups and cleanings, fluoride treatments, dental sealants to prevent cavities, cavity fillings, interceptive orthodontics, and guidance for parents on diet, habits, and oral hygiene at home. We also manage common childhood dental concerns like early tooth loss, thumb-sucking effects, and teeth grinding.\n\nDr. Shrivastava and his team understand that parents are often more anxious than the children themselves. We keep you fully informed at every step and always explain our findings and recommendations in clear, honest terms — so you can make confident decisions for your child's dental health. Building good habits early is one of the best investments you can make for your child.",
     icon: "sun",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/dental-smile.avif",
     category: "preventive",
     featured: false,
     benefits: [
@@ -251,7 +251,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Safe, painless removal of damaged, decayed, or problematic wisdom teeth.",
     description: "When a tooth is too damaged to be saved by a root canal or crown, or if wisdom teeth are causing overcrowding and pain, an extraction is necessary. We perform extractions with the utmost care, using advanced local anesthesia and minimally invasive techniques to ensure you feel absolutely no pain and heal rapidly.",
     icon: "microscope",
-    heroImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/root-canal-clinical.avif",
     category: "restorative",
     featured: false,
     benefits: [
@@ -281,7 +281,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Ultra-thin, custom-made ceramic shells to instantly correct chips, gaps, and severe discoloration.",
     description: "Porcelain veneers are the secret behind Hollywood smiles. These ultra-thin, highly durable ceramic shells are permanently bonded to the front of your teeth. They instantly correct chips, cracks, stubborn discoloration, and minor misalignments, giving you a flawless, symmetrical, and permanently white smile in just a few visits.",
     icon: "sparkles",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/dental-smile.avif",
     category: "cosmetic",
     featured: false,
     benefits: [
@@ -311,7 +311,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Comfortable, natural-looking removable replacements for missing teeth and surrounding tissues.",
     description: "Whether you need partial dentures to replace a few missing teeth or full dentures to restore an entire arch, our custom-crafted dentures are designed for ultimate comfort, stability, and aesthetics. We use high-quality acrylics and resins to ensure your dentures look indistinguishable from natural teeth and allow you to eat and speak with confidence.",
     icon: "implant",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/dental-smile.avif",
     category: "restorative",
     featured: false,
     benefits: [
@@ -341,7 +341,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Advanced periodontal therapy to treat bleeding gums, infections, and bone loss.",
     description: "Healthy gums are the foundation of a healthy mouth. Periodontal (gum) disease is the leading cause of tooth loss in adults. Our comprehensive gum treatments range from deep scaling and root planing to advanced laser therapy, designed to eradicate bacteria, halt bone loss, and restore your gums to a healthy pink state.",
     icon: "microscope",
-    heroImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/root-canal-clinical.avif",
     category: "preventive",
     featured: false,
     benefits: [
@@ -371,7 +371,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "A wide array of aesthetic procedures to enhance the symmetry, color, and shape of your teeth.",
     description: "Cosmetic dentistry is an art form. It encompasses treatments like composite bonding, gum contouring, enamel shaping, and minor alignment corrections. Whether you have a small chip, an uneven gumline, or a slightly misshapen tooth, our cosmetic procedures are designed to perfect the small details that make a huge difference in your smile's overall harmony.",
     icon: "sparkles",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/dental-smile.avif",
     category: "cosmetic",
     featured: false,
     benefits: [
@@ -401,7 +401,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Secure, permanent teeth replacements using advanced bridges and implant-supported systems.",
     description: "Missing multiple teeth? Fixed teeth placement restores your smile with permanent prosthetics that never need to be removed. Whether through a traditional ceramic dental bridge or a full-arch implant-supported system (like All-on-4), we provide fixed, unmovable teeth that look, feel, and function exactly like your natural dentition.",
     icon: "implant",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/services/dental-smile.avif",
     category: "restorative",
     featured: false,
     benefits: [

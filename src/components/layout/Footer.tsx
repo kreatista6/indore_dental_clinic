@@ -29,7 +29,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-white/90 max-w-sm">
-              Providing premium, pain-free dental care in Indore with advanced technology and compassionate specialists.
+              Indore Dental Hospital has been delivering precision dental care to the people of Indore since 2012. From routine check-ups to complete smile transformations — we&apos;re your trusted partner in lifelong oral health.
             </p>
             <div className="flex items-center gap-4 mt-2">
               <a href="#" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white hover:text-[var(--color-primary)]">
@@ -56,11 +56,11 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Services — split into two columns for all 12 */}
+          {/* Services — first 6 only */}
           <div className="flex flex-col gap-6 lg:col-span-2">
             <h4 className="text-lg font-semibold">Our Services</h4>
             <nav className="grid grid-cols-2 gap-x-6 gap-y-2.5">
-              {SERVICES_DATA.map((service) => (
+              {SERVICES_DATA.slice(0, 6).map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}

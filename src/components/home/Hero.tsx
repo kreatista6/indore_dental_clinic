@@ -72,6 +72,13 @@ export function Hero() {
               </h1>
             </StaggerItem>
 
+            {/* Subheadline */}
+            <StaggerItem>
+              <p className="text-lg md:text-xl text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                Indore&apos;s most trusted dental clinic — where advanced technology meets gentle, personalised care. Because your smile deserves nothing less than the best.
+              </p>
+            </StaggerItem>
+
             {/* Doctor credential strip */}
             <StaggerItem>
               <div className="flex flex-col items-center lg:items-start gap-1.5">
@@ -104,7 +111,7 @@ export function Hero() {
                 </div>
                 <div className="flex items-center gap-1 text-sm md:text-base font-medium text-[var(--color-text-primary)] pl-1">
                   <Star className="h-4 w-4 fill-[#F59E0B] text-[#F59E0B]" />
-                  <span>4.9/5 · 1,200+ Patients</span>
+                  <span>4.9/5 · 15,000+ Patients</span>
                 </div>
               </div>
             </StaggerItem>
@@ -112,7 +119,7 @@ export function Hero() {
             {/* CTAs */}
             <StaggerItem className="flex flex-col sm:flex-row gap-3 w-full justify-center lg:justify-start">
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="/contact">Book Consultation</Link>
+                <Link href="/contact">Book Free Consultation</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
                 <Link href="/services">Explore Treatments</Link>
