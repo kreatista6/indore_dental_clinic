@@ -48,6 +48,8 @@ export function EConsultFloat() {
         setPreview(null);
         if (fileRef.current) fileRef.current.value = "";
         setTimeout(() => { setStatus("idle"); setOpen(false); }, 3500);
+      } else if (res.status === 429) {
+        setStatus("error");
       } else {
         setStatus("error");
       }
@@ -217,7 +219,7 @@ export function EConsultFloat() {
 
                     {status === "error" && (
                       <p className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-3">
-                        Something went wrong. Please try calling us directly.
+                        Too many requests or something went wrong. Please wait a few minutes or call us directly.
                       </p>
                     )}
 

@@ -49,6 +49,8 @@ export function AppointmentCTA() {
         setIsSuccess(true);
         reset();
         setTimeout(() => setIsSuccess(false), 5000);
+      } else if (response.status === 429) {
+        alert("You've submitted too many requests. Please wait a few minutes and try again.");
       } else {
         alert("Something went wrong. Please try calling us instead.");
       }

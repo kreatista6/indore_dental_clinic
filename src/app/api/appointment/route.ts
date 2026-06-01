@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as z from "zod";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 const appointmentSchema = z.object({
   name: z.string().min(2),
@@ -11,6 +12,18 @@ const appointmentSchema = z.object({
 });
 
 export async function POST(req: Request) {
+  // Rate limit: 3 submissions per IP per 15 minutes
+  const ip = getClientIp(req);
+  const limit = rateLimit(ip, { limit: 3, windowMs: 15 * 60 * 1000 });
+
+  if (!limit.success) {
+    const retryAfterSecs = Math.ceil((limit.resetAt - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: "Too many requests. Please wait a few minutes before trying again." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSecs) } }
+    );
+  }
+
   try {
     const body = await req.json();
     const formData = appointmentSchema.parse(body);
