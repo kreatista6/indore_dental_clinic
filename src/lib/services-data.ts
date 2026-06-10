@@ -187,7 +187,7 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     slug: "braces-orthodontics",
-    title: "Braces / Orthodontics",
+    title: "Aligners",
     shortDescription: "Straighten your teeth and correct your bite with modern orthodontic solutions — for children, teenagers, and adults alike.",
     description: "Orthodontic treatment does far more than improve the appearance of your smile — it corrects bite problems, reduces strain on the jaw, makes teeth easier to clean, and improves long-term oral health. Whether you're dealing with crowded teeth, gaps, an overbite, or underbite, the right orthodontic treatment can make a significant difference to both your smile and your quality of life.\n\nAt Indore Dental Hospital, we offer a full range of orthodontic solutions including traditional metal braces, tooth-coloured ceramic braces, and modern clear aligner systems — allowing you to choose the option that best fits your lifestyle and aesthetic preferences. Each treatment begins with a thorough clinical and digital assessment of your teeth, jaw, and bite to design a personalised correction plan with realistic timelines and expected outcomes.\n\nDr. Shrivastava and his team bring the same precision and care to orthodontics that they do to every other treatment. Whether your child needs early intervention or you're an adult considering braces for the first time, we make the process approachable, transparent, and effective. Straighter teeth are closer than you think.",
     icon: "stethoscope",
@@ -221,7 +221,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Specialist dental care designed for little ones — gentle, reassuring, and built to make every child feel safe and comfortable at the dentist.",
     description: "A child's first few visits to the dentist can shape their relationship with oral health for life. That's why we've designed our paediatric dental service to be as welcoming, warm, and fear-free as possible. From the moment a young patient walks into Indore Dental Hospital, our team goes out of their way to make them feel at ease — explaining everything in simple, friendly language and moving at a pace the child is comfortable with.\n\nWe provide comprehensive dental care for children from the time their first tooth erupts through their teenage years. Services include routine check-ups and cleanings, fluoride treatments, dental sealants to prevent cavities, cavity fillings, interceptive orthodontics, and guidance for parents on diet, habits, and oral hygiene at home. We also manage common childhood dental concerns like early tooth loss, thumb-sucking effects, and teeth grinding.\n\nDr. Shrivastava and his team understand that parents are often more anxious than the children themselves. We keep you fully informed at every step and always explain our findings and recommendations in clear, honest terms — so you can make confident decisions for your child's dental health. Building good habits early is one of the best investments you can make for your child.",
     icon: "sun",
-    heroImage: "/services/dental-smile.avif",
+    heroImage: "/services/dental-smile.jpg",
     category: "preventive",
     featured: false,
     benefits: [
@@ -281,7 +281,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Ultra-thin, custom-made ceramic shells to instantly correct chips, gaps, and severe discoloration.",
     description: "Porcelain veneers are the secret behind Hollywood smiles. These ultra-thin, highly durable ceramic shells are permanently bonded to the front of your teeth. They instantly correct chips, cracks, stubborn discoloration, and minor misalignments, giving you a flawless, symmetrical, and permanently white smile in just a few visits.",
     icon: "sparkles",
-    heroImage: "/services/dental-smile.avif",
+    heroImage: "/services/dental-smile.jpg",
     category: "cosmetic",
     featured: false,
     benefits: [
@@ -311,7 +311,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Comfortable, natural-looking removable replacements for missing teeth and surrounding tissues.",
     description: "Whether you need partial dentures to replace a few missing teeth or full dentures to restore an entire arch, our custom-crafted dentures are designed for ultimate comfort, stability, and aesthetics. We use high-quality acrylics and resins to ensure your dentures look indistinguishable from natural teeth and allow you to eat and speak with confidence.",
     icon: "implant",
-    heroImage: "/services/dental-smile.avif",
+    heroImage: "/services/dental-smile.jpg",
     category: "restorative",
     featured: false,
     benefits: [
@@ -371,7 +371,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "A wide array of aesthetic procedures to enhance the symmetry, color, and shape of your teeth.",
     description: "Cosmetic dentistry is an art form. It encompasses treatments like composite bonding, gum contouring, enamel shaping, and minor alignment corrections. Whether you have a small chip, an uneven gumline, or a slightly misshapen tooth, our cosmetic procedures are designed to perfect the small details that make a huge difference in your smile's overall harmony.",
     icon: "sparkles",
-    heroImage: "/services/dental-smile.avif",
+    heroImage: "/services/dental-smile.jpg",
     category: "cosmetic",
     featured: false,
     benefits: [
@@ -401,7 +401,7 @@ export const SERVICES_DATA: Service[] = [
     shortDescription: "Secure, permanent teeth replacements using advanced bridges and implant-supported systems.",
     description: "Missing multiple teeth? Fixed teeth placement restores your smile with permanent prosthetics that never need to be removed. Whether through a traditional ceramic dental bridge or a full-arch implant-supported system (like All-on-4), we provide fixed, unmovable teeth that look, feel, and function exactly like your natural dentition.",
     icon: "implant",
-    heroImage: "/services/dental-smile.avif",
+    heroImage: "/services/dental-smile.jpg",
     category: "restorative",
     featured: false,
     benefits: [

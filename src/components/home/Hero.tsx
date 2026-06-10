@@ -82,7 +82,7 @@ export function Hero() {
             {/* Doctor credential strip */}
             <StaggerItem>
               <div className="flex flex-col items-center lg:items-start gap-1.5">
-                <p className="hindi text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
+                <p className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
                   {DOCTOR.name}
                 </p>
                 <p className="text-base text-[var(--color-text-muted)]">{DOCTOR.title}</p>
@@ -147,7 +147,7 @@ export function Hero() {
                     <ShieldCheck size={20} />
                   </div>
                   <div className="min-w-0">
-                    <p className="hindi font-bold text-base text-[var(--color-text-primary)] leading-tight">{DOCTOR.name}</p>
+                    <p className="font-bold text-base text-[var(--color-text-primary)] leading-tight">{DOCTOR.name}</p>
                     <p className="text-xs text-[var(--color-text-muted)] mt-0.5">{DOCTOR.title}</p>
                     <div className="flex flex-wrap gap-1 mt-1.5">
                       {DOCTOR.credentials.map((c) => (

@@ -9,10 +9,10 @@ export const CLINIC_EMAIL = "indoredentalhospital@gmail.com";
 export const CLINIC_MAP_URL = "https://goo.gl/maps/placeholder";
 
 export const DOCTOR = {
-  name: "डॉ. सुगंध श्रीवास्तव",
+  name: "Dr. Sugandh Shrivastava",
   nameEn: "Dr. Sugandh Shrivastava",
   title: "Maxillofacial Prosthodontist & Implantologist",
-  titleHi: "मैक्सिलोफ़ेशियल प्रॉस्थोडोंटिस्ट एवं इंप्लांटोलॉजिस्ट",
+  titleHi: "Maxillofacial Prosthodontist & Implantologist",
   credentials: ["M.D.S.", "F.A.G.E. (Karnataka)", "F.W.C.L.I. (USA)", "P.G.C.O.I. (Israel)"],
 };
 
@@ -31,8 +31,8 @@ export const NAV_LINKS = [
 
 export const TRUST_STATS: StatItem[] = [
   { value: 14, suffix: "+", label: "Years Experience" },
-  { value: 15, suffix: "k+", label: "Happy Patients" },
-  { value: 25, suffix: "k+", label: "Successful Treatments" },
+  { value: 1, suffix: " Lakh+", label: "Happy Patients" },
+  { value: 50, suffix: "k+", label: "Successful Treatments" },
   { value: 100, suffix: "+", label: "Advanced Tech Equipped" }
 ];
 

@@ -70,6 +70,12 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
+            <Link
+              href="/services"
+              className="text-sm text-[var(--color-accent)] font-medium transition-colors hover:text-white mt-1 inline-flex items-center gap-1"
+            >
+              All dental oral and maxillofacial treatments &rarr;
+            </Link>
           </div>
 
           {/* Contact */}

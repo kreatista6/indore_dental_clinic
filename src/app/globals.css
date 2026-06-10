@@ -16,7 +16,6 @@
 
   --font-heading: var(--font-plus-jakarta-sans), "Helvetica Neue", sans-serif;
   --font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
-  --font-hindi: var(--font-arya), "Noto Sans Devanagari", sans-serif;
 
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
@@ -85,13 +84,6 @@
       background-color: rgba(255, 255, 255, 0.85);
     }
   }
-  /* Hindi / Devanagari text utility */
-  .hindi {
-    font-family: var(--font-hindi);
-    font-weight: 700;
-    line-height: 1.5;
-  }
-
   /* ── Section gradient rhythm ─────────────────────────────────────────────
      Teal = #0D7377 (primary), Gold = #C9A96E (accent)
      Each section flows from the hero's backdrop lighting colours.

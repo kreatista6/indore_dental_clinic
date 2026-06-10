@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, DM_Sans, Arya } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -22,13 +22,6 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const arya = Arya({
-  subsets: ["devanagari", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-arya",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: `${CLINIC_NAME} | Premium Dental Care`,
   description: "Advanced, pain-free dental treatments in Indore. Implants, smile makeovers, and comprehensive care.",
@@ -44,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${dmSans.variable} ${arya.variable}`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${dmSans.variable}`}>
       <head>
         <link rel="preload" href="/molar_tooth.glb" as="fetch" crossOrigin="anonymous" />
         {/* Google Analytics — only loads when GA ID is set */}

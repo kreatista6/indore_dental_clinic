@@ -79,7 +79,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <ScrollReveal>
               <SectionHeading eyebrow="Meet The Expert" title={DOCTOR.nameEn} description={DOCTOR.title} />
-              <p className="hindi text-lg text-[var(--color-text-muted)] mt-2 mb-5">{DOCTOR.name} — {DOCTOR.titleHi}</p>
+              <p className="text-lg font-bold text-[var(--color-text-muted)] mt-2 mb-5">{DOCTOR.name} — {DOCTOR.titleHi}</p>
               <div className="space-y-3 mb-6">
                 {DOCTOR.credentials.map((c) => (
                   <div key={c} className="flex items-center gap-3">

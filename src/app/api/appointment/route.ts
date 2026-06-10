@@ -2,14 +2,23 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as z from "zod";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { appointmentConfirmationHtml } from "@/emails/appointment-confirmation";
 
 const appointmentSchema = z.object({
   name: z.string().min(2),
   phone: z.string().min(10),
+  email: z.string().email(),
   treatment: z.string().min(1),
   date: z.string().min(1),
+  time: z.string().min(1),
   message: z.string().optional(),
 });
+
+function generateReferenceId(): string {
+  const datePart = new Date().toISOString().slice(2, 10).replace(/-/g, "");
+  const randomPart = Math.random().toString(36).substring(2, 6).toUpperCase();
+  return `IDH-${datePart}-${randomPart}`;
+}
 
 export async function POST(req: Request) {
   // Rate limit: 3 submissions per IP per 15 minutes
@@ -34,13 +43,37 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const toEmail = process.env.CLINIC_EMAIL || "indoredentalhospital@gmail.com";
+    const clinicEmail = process.env.CLINIC_EMAIL || "indoredentalhospital@gmail.com";
+    const referenceId = generateReferenceId();
 
-    console.log("Sending appointment email to:", toEmail);
+    const formattedDate = new Date(formData.date).toLocaleDateString("en-IN", {
+      weekday: "long", year: "numeric", month: "long", day: "numeric",
+    });
 
-    const { data: emailData, error } = await resend.emails.send({
+    // Send confirmation to the patient
+    const patientHtml = appointmentConfirmationHtml({
+      patientName: formData.name,
+      treatment: formData.treatment,
+      appointmentDate: formattedDate,
+      appointmentTime: formData.time,
+      referenceId,
+    });
+
+    const { error: patientError } = await resend.emails.send({
       from: "Indore Dental Hospital <onboarding@resend.dev>",
-      to: toEmail,
+      to: formData.email,
+      subject: `Appointment Confirmed — Indore Dental Hospital`,
+      html: patientHtml,
+    });
+
+    if (patientError) {
+      console.error("Error sending patient email:", JSON.stringify(patientError));
+    }
+
+    // Send notification to the clinic
+    const { error: clinicError } = await resend.emails.send({
+      from: "Indore Dental Hospital <onboarding@resend.dev>",
+      to: clinicEmail,
       subject: `New Appointment: ${formData.name} — ${formData.treatment}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
@@ -48,22 +81,24 @@ export async function POST(req: Request) {
           <table style="width:100%;border-collapse:collapse;">
             <tr><td style="padding:8px 0;color:#6b7280;width:140px;">Name</td><td style="padding:8px 0;font-weight:600;">${formData.name}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;">Phone</td><td style="padding:8px 0;font-weight:600;">${formData.phone}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;">Email</td><td style="padding:8px 0;font-weight:600;">${formData.email}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;">Treatment</td><td style="padding:8px 0;font-weight:600;">${formData.treatment}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;">Preferred Date</td><td style="padding:8px 0;font-weight:600;">${formData.date}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;">Preferred Time</td><td style="padding:8px 0;font-weight:600;">${formData.time}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;vertical-align:top;">Notes</td><td style="padding:8px 0;">${formData.message || "—"}</td></tr>
           </table>
           <hr style="border:none;border-top:1px solid #e5e7eb;margin:20px 0;" />
-          <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from Indore Dental Hospital website</p>
+          <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from Indore Dental Hospital website — Ref: ${referenceId}</p>
         </div>
       `,
     });
 
-    if (error) {
-      console.error("Resend error:", JSON.stringify(error));
-      return NextResponse.json({ error: "Failed to send email", details: error.message }, { status: 500 });
+    if (clinicError) {
+      console.error("Error sending clinic email:", JSON.stringify(clinicError));
+      return NextResponse.json({ error: "Failed to send notification", details: clinicError.message }, { status: 500 });
     }
 
-    console.log("Appointment email sent:", emailData?.id);
+    console.log("Appointment emails sent. Ref:", referenceId);
     return NextResponse.json({ success: true }, { status: 200 });
 
   } catch (error) {

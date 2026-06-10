@@ -16,10 +16,17 @@ import { SERVICES_DATA } from "@/lib/services-data";
 const appointmentSchema = z.object({
   name: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number is required"),
+  email: z.string().email("Valid email is required"),
   treatment: z.string().min(1, "Please select a treatment"),
   date: z.string().min(1, "Please select a preferred date"),
+  time: z.string().min(1, "Please select a preferred time"),
   message: z.string().optional(),
 });
+
+const TIME_SLOTS = [
+  "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+  "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM",
+];
 
 type AppointmentFormValues = z.infer<typeof appointmentSchema>;
 
@@ -121,6 +128,10 @@ export function AppointmentCTA() {
                       {errors.phone && <span className="text-red-500 text-xs px-1">{errors.phone.message}</span>}
                     </div>
                   </div>
+                  <div className="flex flex-col gap-1.5">
+                    <Input placeholder="Email Address" type="email" {...register("email")} className="bg-white" />
+                    {errors.email && <span className="text-red-500 text-xs px-1">{errors.email.message}</span>}
+                  </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col gap-1.5">
@@ -136,6 +147,7 @@ export function AppointmentCTA() {
                             {service.title}
                           </option>
                         ))}
+                        <option value="General Treatment">General Treatment</option>
                         <option value="Other">Other / Not Sure</option>
                       </select>
                       {errors.treatment && <span className="text-red-500 text-xs px-1">{errors.treatment.message}</span>}
@@ -145,6 +157,20 @@ export function AppointmentCTA() {
                       <Input id="appt-date" type="date" {...register("date")} className="bg-white text-[var(--color-text-primary)]" />
                       {errors.date && <span className="text-red-500 text-xs px-1">{errors.date.message}</span>}
                     </div>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="appt-time" className="sr-only">Preferred Time</label>
+                    <select 
+                      id="appt-time"
+                      {...register("time")}
+                      className="flex h-12 w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-2 text-sm text-[var(--color-text-primary)] shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-primary)]"
+                    >
+                      <option value="">Select Preferred Time</option>
+                      {TIME_SLOTS.map((slot) => (
+                        <option key={slot} value={slot}>{slot}</option>
+                      ))}
+                    </select>
+                    {errors.time && <span className="text-red-500 text-xs px-1">{errors.time.message}</span>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
