@@ -96,13 +96,39 @@ function DesktopView() {
 // ─── Mobile ───────────────────────────────────────────────────────────────────
 function MobileView() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && activeIndex < SLIDES.length - 1) {
+        setActiveIndex((i) => i + 1);
+      } else if (diff < 0 && activeIndex > 0) {
+        setActiveIndex((i) => i - 1);
+      }
+    }
+  };
 
   return (
     <div className="px-5 py-12 w-full">
       <div className="mb-8 text-center">
         <SectionHeading eyebrow="Our Expertise" title="Comprehensive Dental Solutions" description="From routine check-ups to complex full-mouth rehabilitations." alignment="center" />
       </div>
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg mb-3 bg-[var(--color-primary-light)]">
+      <div
+        className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg mb-3 bg-[var(--color-primary-light)]"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <AnimatePresence mode="wait">
           <motion.div key={activeIndex} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
             <Image src={SLIDES[activeIndex].imageUrl} alt={SLIDES[activeIndex].title} fill className="object-cover" sizes="(max-width: 768px) 90vw, 100vw" />
