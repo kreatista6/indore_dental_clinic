@@ -12,6 +12,7 @@ const appointmentSchema = z.object({
   date: z.string().min(1),
   time: z.string().min(1),
   message: z.string().optional(),
+  consent: z.literal(true),
 });
 
 function generateReferenceId(): string {
@@ -86,6 +87,7 @@ export async function POST(req: Request) {
             <tr><td style="padding:8px 0;color:#6b7280;">Preferred Date</td><td style="padding:8px 0;font-weight:600;">${formData.date}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;">Preferred Time</td><td style="padding:8px 0;font-weight:600;">${formData.time}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;vertical-align:top;">Notes</td><td style="padding:8px 0;">${formData.message || "—"}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;">Consent</td><td style="padding:8px 0;font-weight:600;color:#059669;">&#10003; Obtained</td></tr>
           </table>
           <hr style="border:none;border-top:1px solid #e5e7eb;margin:20px 0;" />
           <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from Indore Dental Hospital website — Ref: ${referenceId}</p>

@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/Textarea";
 import { PhoneCall, CalendarCheck, CalendarDays } from "lucide-react";
 import { CLINIC_PHONE } from "@/lib/constants";
 import { SERVICES_DATA } from "@/lib/services-data";
+import Link from "next/link";
 
 const appointmentSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -21,6 +22,7 @@ const appointmentSchema = z.object({
   date: z.string().min(1, "Please select a preferred date"),
   time: z.string().min(1, "Please select a preferred time"),
   message: z.string().optional(),
+  consent: z.boolean().refine(val => val === true, "You must agree to receive communication"),
 });
 
 const TIME_SLOTS = [
@@ -180,6 +182,15 @@ export function AppointmentCTA() {
                   <div className="flex flex-col gap-1.5">
                     <Textarea placeholder="Any specific concerns or message?" {...register("message")} className="bg-white" />
                   </div>
+
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" {...register("consent")} className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-primary)]" />
+                    <span className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                      I consent to Indore Dental Hospital using my details to contact me regarding my appointment and for related communication. View our{" "}
+                      <Link href="/privacy-policy" className="text-[var(--color-primary)] underline hover:no-underline">Privacy Policy</Link>.
+                    </span>
+                  </label>
+                  {errors.consent && <span className="text-red-500 text-xs px-1">{errors.consent.message}</span>}
 
                   <Button type="submit" size="lg" disabled={isSubmitting} className="w-full mt-2">
                     {isSubmitting ? "Sending Request..." : "Request Appointment"}
