@@ -3,9 +3,9 @@ import { Service } from "@/types";
 export const SERVICES_DATA: Service[] = [
   {
     slug: "dental-implants",
-    title: "Dental Implants",
-    shortDescription: "Permanent, natural-looking teeth replacements that look, feel, and function just like your own — placed by one of Indore's most experienced implantologists.",
-    description: "A dental implant is a titanium root surgically placed into the jawbone, onto which a custom crown is attached — giving you a tooth that is virtually indistinguishable from a natural one. Unlike dentures or bridges, implants preserve jawbone health, prevent neighbouring teeth from shifting, and restore full chewing and speaking function. They are widely considered the gold standard in tooth replacement worldwide.\n\nAt Indore Dental Hospital, dental implant procedures are performed exclusively by Dr. Sugandh Shrivastava, who holds a Postgraduate Certification in Oral Implantology from Israel and has placed hundreds of implants with exceptional success rates. We use internationally certified, premium-grade implant systems and employ advanced 3D imaging (CBCT scans) to plan each placement with surgical precision — minimising risk and maximising long-term outcomes.\n\nPatients choose us for implants because of our transparent pricing, pain-managed protocols, and comprehensive aftercare. Whether you need a single tooth replaced or a full-mouth restoration, we create a personalised treatment plan so you know exactly what to expect — at every step of your journey.",
+    title: "Fixed Crowns & Bridges with Dental Implants",
+    shortDescription: "Permanent fixed crowns and bridges anchored on dental implants — restoring your smile with strength, stability, and a completely natural look.",
+    description: "Fixed crowns and bridges anchored on dental implants are the gold standard for replacing missing teeth. Unlike removable dentures, these prosthetics are permanently secured onto titanium implant roots — giving you teeth that look, feel, and function exactly like natural ones. A single implant crown replaces one missing tooth, while an implant-supported bridge can replace multiple teeth in a row without disturbing adjacent healthy teeth.\n\nAt Indore Dental Hospital, every implant procedure is performed by Dr. Sugandh Shrivastava, who holds a Postgraduate Certification in Oral Implantology from Israel and has placed hundreds of implants with exceptional success rates. We use internationally certified, premium-grade implant systems and employ advanced 3D imaging (CBCT scans) to plan each placement with surgical precision — minimising risk and maximising long-term outcomes.\n\nPatients choose us for implant-based restorations because of our transparent pricing, pain-managed protocols, and comprehensive aftercare. Whether you need a single crown or a full-mouth fixed bridge, we create a personalised treatment plan so you know exactly what to expect — at every step of your journey.",
     icon: "implant",
     heroImage: "/services/dental-implants.jpg",
     category: "restorative",
@@ -48,56 +48,10 @@ export const SERVICES_DATA: Service[] = [
     ]
   },
   {
-    slug: "smile-makeover",
-    title: "Digital Smile Makeover",
-    shortDescription: "A fully personalised smile transformation — designed digitally, so you can see and approve your new smile before a single procedure begins.",
-    description: "A digital smile makeover is a comprehensive cosmetic treatment plan that combines multiple dental procedures — such as veneers, teeth whitening, crowns, aligners, and gum contouring — to transform the overall appearance of your smile. What makes our approach truly special is the use of Digital Smile Design (DSD) technology, which allows us to digitally preview your new smile on a screen before any treatment begins. You see exactly what you'll look like — and we adjust until it's perfect.\n\nAt Indore Dental Hospital, every smile makeover begins with a detailed consultation where Dr. Shrivastava analyses your facial structure, lip line, gum aesthetics, and tooth proportions. The result is not just a beautiful smile — but one that is harmonious, natural-looking, and uniquely yours. We believe your smile should complement your personality, not look like it belongs to someone else.\n\nFrom Bollywood-inspired smile corrections to subtle enhancements that simply make you look refreshed, our team has delivered smile transformations for patients across Indore and beyond. With premium materials, meticulous craftsmanship, and genuine care, we don't just change smiles — we change lives.",
-    icon: "sparkles",
-    heroImage: "/services/smile-makeover.jpg",
-    category: "cosmetic",
-    featured: true,
-    benefits: [
-      "Completely personalized to your facial features",
-      "Predictable results you can preview beforehand",
-      "Combines veneers, whitening, and alignment seamlessly",
-      "Massive boost to self-confidence"
-    ],
-    procedure: [
-      {
-        step: 1,
-        title: "Digital Capture",
-        description: "We take high-resolution photos, videos, and 3D digital scans of your mouth and face."
-      },
-      {
-        step: 2,
-        title: "Digital Design",
-        description: "Our specialists digitally architect your perfect smile, analyzing symmetry and proportions."
-      },
-      {
-        step: 3,
-        title: "The 'Mock-up' Trial",
-        description: "We place a temporary resin mock-up over your teeth so you can see and feel the final result before committing."
-      },
-      {
-        step: 4,
-        title: "Master Execution",
-        description: "Once approved, we execute the exact treatment plan using premium ceramics and precision techniques."
-      }
-    ],
-    faqs: [
-      { question: "What does a smile makeover include?", answer: "A smile makeover combines multiple cosmetic treatments like teeth whitening, veneers, crowns, orthodontics, and gum contouring based on your needs. At Indore Dental Hospital, we create a customized plan after analyzing your facial structure, tooth alignment, and desired outcome. The goal is to achieve a natural, balanced, and confident smile." },
-      { question: "How much does a complete smile makeover cost in Indore?", answer: "Smile makeover costs vary widely from ₹50,000 to ₹3,00,000+ depending on the procedures involved. A consultation will help determine which treatments you need and provide an accurate estimate. Many patients opt for phased treatment to manage costs over time." },
-      { question: "How long does a smile makeover take?", answer: "Simple makeovers involving whitening and bonding can be completed in 2-3 visits over a few weeks. Comprehensive cases with veneers, crowns, or orthodontics may take 6-12 months. Your timeline depends on the complexity of treatments chosen." },
-      { question: "Will a smile makeover look natural or fake?", answer: "Modern cosmetic dentistry focuses on natural-looking results that complement your facial features. We avoid overly white or uniform teeth that look artificial. Digital smile design technology allows you to preview and approve your new smile before any work begins." },
-      { question: "Is smile makeover treatment permanent?", answer: "Most treatments like veneers and crowns last 10-15 years with proper care, while whitening may need touch-ups every 1-2 years. Orthodontic results are permanent if you wear retainers as directed. Regular maintenance and good oral hygiene extend the longevity of your makeover." },
-      { question: "Can I get a smile makeover if I have missing teeth?", answer: "Yes, replacing missing teeth with implants, bridges, or dentures is often a key component of smile makeovers. We address functional issues like gaps and alignment before cosmetic enhancements. A comprehensive evaluation at Indore Dental Hospital will determine the best sequence of treatments for your case." }
-    ]
-  },
-  {
     slug: "root-canal",
-    title: "Painless Root Canal",
-    shortDescription: "Modern root canal therapy that saves your natural tooth — comfortably, quickly, and with virtually no pain.",
-    description: "Root canal treatment has an unfair reputation. The truth is, with modern anaesthesia and advanced techniques, the procedure itself is no more uncomfortable than getting a filling. A root canal becomes necessary when the soft tissue (pulp) inside a tooth becomes infected due to deep decay, a crack, or trauma. Left untreated, this infection spreads, causes severe pain, and can result in tooth loss.\n\nAt Indore Dental Hospital, we perform root canal treatments using the latest rotary endodontic technology — a motorised, highly precise system that cleans and shapes the root canals faster and more thoroughly than traditional hand files. Combined with our pain-managed protocols and effective local anaesthesia, most patients are genuinely surprised by how comfortable the experience is. Many complete the procedure in a single extended appointment.\n\nWe always follow root canal treatment with a high-quality ceramic crown to protect and strengthen the treated tooth, ensuring it lasts for many years. Dr. Shrivastava and his team take the time to explain every step of the process, so you arrive informed and leave relieved — with your natural tooth saved.",
+    title: "Single-Sitting Root Canal Treatment",
+    shortDescription: "Complete root canal therapy in a single, comfortable sitting — save your natural tooth and walk out pain-free on the same day.",
+    description: "Root canal treatment has an unfair reputation. The truth is, with modern anaesthesia and advanced techniques, most cases can now be completed comfortably in a single sitting — saving your natural tooth in just one extended appointment. A root canal becomes necessary when the soft tissue (pulp) inside a tooth becomes infected due to deep decay, a crack, or trauma. Left untreated, this infection spreads, causes severe pain, and can result in tooth loss.\n\nAt Indore Dental Hospital, we perform single-sitting root canal treatments using the latest rotary endodontic technology — a motorised, highly precise system that cleans and shapes the root canals faster and more thoroughly than traditional hand files. Combined with our pain-managed protocols and effective local anaesthesia, most patients are genuinely surprised by how comfortable the experience is. Many complete the entire procedure in a single extended appointment and walk out pain-free.\n\nWe always follow root canal treatment with a high-quality ceramic crown to protect and strengthen the treated tooth, ensuring it lasts for many years. Dr. Shrivastava and his team take the time to explain every step of the process, so you arrive informed and leave relieved — with your natural tooth saved.",
     icon: "microscope",
     heroImage: "/services/root-canal.jpg",
     category: "restorative",
@@ -141,9 +95,9 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     slug: "teeth-whitening",
-    title: "Advanced Teeth Whitening",
-    shortDescription: "Safe, clinically supervised teeth whitening that delivers noticeably brighter results — in as little as one visit.",
-    description: "Over time, teeth naturally accumulate stains from tea, coffee, wine, tobacco, and certain foods — leaving even the healthiest smiles looking dull or discoloured. Professional teeth whitening is the safest and most effective way to reverse this, delivering results that are significantly better than any over-the-counter whitening product.\n\nAt Indore Dental Hospital, we offer in-clinic power whitening using clinically approved, prescription-strength whitening agents that are activated to lift deep stains and brighten your enamel by several shades in a single session. For patients who prefer a more gradual approach, we also offer custom take-home whitening kits with professional-grade trays moulded to your teeth for even, comfortable results.\n\nAll our whitening treatments are supervised by Dr. Shrivastava to ensure your enamel is protected and your results are consistent. We also provide guidance on post-whitening care to extend the brightness of your smile for as long as possible. Because a whiter smile isn't just cosmetic — it's a confidence boost that shows the moment you walk into a room.",
+    title: "Teeth Stain Removal with Professional Teeth Whitening",
+    shortDescription: "Professionally remove deep-set stains and discolouration with clinical-grade whitening — noticeably brighter teeth in as little as one visit.",
+    description: "Teeth naturally accumulate stains over time from tea, coffee, wine, tobacco, and certain foods — making even the healthiest smiles look dull or discoloured. Professional teeth whitening is the safest and most effective way to remove these deep-set stains, delivering results that are significantly better than any over-the-counter whitening product.\n\nAt Indore Dental Hospital, we offer in-clinic power whitening using clinically approved, prescription-strength whitening agents that are activated to lift deep stains and brighten your enamel by several shades in a single session. For patients who prefer a more gradual approach, we also offer custom take-home whitening kits with professional-grade trays moulded to your teeth for even, comfortable results.\n\nAll our whitening treatments are supervised by Dr. Shrivastava to ensure your enamel is protected and your results are consistent. We also provide guidance on post-whitening care to extend the brightness of your smile for as long as possible. Because a whiter smile isn't just cosmetic — it's a confidence boost that shows the moment you walk into a room.",
     icon: "sun",
     heroImage: "/services/teeth-whitening.jpg",
     category: "cosmetic",
@@ -187,9 +141,9 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     slug: "braces-orthodontics",
-    title: "Aligners",
-    shortDescription: "Straighten your teeth and correct your bite with modern orthodontic solutions — for children, teenagers, and adults alike.",
-    description: "Orthodontic treatment does far more than improve the appearance of your smile — it corrects bite problems, reduces strain on the jaw, makes teeth easier to clean, and improves long-term oral health. Whether you're dealing with crowded teeth, gaps, an overbite, or underbite, the right orthodontic treatment can make a significant difference to both your smile and your quality of life.\n\nAt Indore Dental Hospital, we offer a full range of orthodontic solutions including traditional metal braces, tooth-coloured ceramic braces, and modern clear aligner systems — allowing you to choose the option that best fits your lifestyle and aesthetic preferences. Each treatment begins with a thorough clinical and digital assessment of your teeth, jaw, and bite to design a personalised correction plan with realistic timelines and expected outcomes.\n\nDr. Shrivastava and his team bring the same precision and care to orthodontics that they do to every other treatment. Whether your child needs early intervention or you're an adult considering braces for the first time, we make the process approachable, transparent, and effective. Straighter teeth are closer than you think.",
+    title: "Teeth Alignment with Invisible Aligners",
+    shortDescription: "Straighten your smile discreetly with custom clear aligners — virtually invisible, removable, and comfortable for all ages.",
+    description: "Clear aligners have transformed orthodontic treatment — offering a discreet, removable, and highly comfortable way to straighten teeth without the look or feel of traditional metal braces. Each set of custom-made transparent trays gradually shifts your teeth into alignment, with a new tray worn every one to two weeks. They are virtually invisible, making them the preferred choice for adults and teens who want to improve their smile without anyone knowing they are in treatment.\n\nAt Indore Dental Hospital, we offer advanced clear aligner systems for a wide range of cases — from mild crowding and spacing to more moderate bite corrections. Each treatment begins with a thorough digital assessment using 3D扫描 technology to map your teeth and plan the exact movement sequence. You can see a virtual preview of your final smile before the first tray is even made.\n\nDr. Shrivastava and his team bring the same precision and care to aligner therapy that they do to every other treatment. Unlike generic mail-order aligners, our in-clinic supervision ensures your teeth move safely, your bite stays healthy, and your results are lasting. Straighter teeth are closer than you think.",
     icon: "stethoscope",
     heroImage: "/services/braces.jpg",
     category: "orthodontic",
@@ -217,7 +171,7 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     slug: "pediatric-dentistry",
-    title: "Pediatric Dentistry",
+    title: "Specialized Pediatric Dentistry (Dentist for Kids)",
     shortDescription: "Specialist dental care designed for little ones — gentle, reassuring, and built to make every child feel safe and comfortable at the dentist.",
     description: "A child's first few visits to the dentist can shape their relationship with oral health for life. That's why we've designed our paediatric dental service to be as welcoming, warm, and fear-free as possible. From the moment a young patient walks into Indore Dental Hospital, our team goes out of their way to make them feel at ease — explaining everything in simple, friendly language and moving at a pace the child is comfortable with.\n\nWe provide comprehensive dental care for children from the time their first tooth erupts through their teenage years. Services include routine check-ups and cleanings, fluoride treatments, dental sealants to prevent cavities, cavity fillings, interceptive orthodontics, and guidance for parents on diet, habits, and oral hygiene at home. We also manage common childhood dental concerns like early tooth loss, thumb-sucking effects, and teeth grinding.\n\nDr. Shrivastava and his team understand that parents are often more anxious than the children themselves. We keep you fully informed at every step and always explain our findings and recommendations in clear, honest terms — so you can make confident decisions for your child's dental health. Building good habits early is one of the best investments you can make for your child.",
     icon: "sun",
@@ -247,11 +201,11 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     slug: "tooth-extraction",
-    title: "Tooth Extraction",
-    shortDescription: "Safe, painless removal of damaged, decayed, or problematic wisdom teeth.",
+    title: "Painless Tooth Extraction",
+    shortDescription: "Safe, painless removal of damaged, decayed, or problematic teeth — performed with advanced anaesthesia for your complete comfort.",
     description: "When a tooth is too damaged to be saved by a root canal or crown, or if wisdom teeth are causing overcrowding and pain, an extraction is necessary. We perform extractions with the utmost care, using advanced local anesthesia and minimally invasive techniques to ensure you feel absolutely no pain and heal rapidly.",
     icon: "microscope",
-    heroImage: "/services/root-canal-clinical.avif",
+    heroImage: "/services/tooth_extraction.webp",
     category: "restorative",
     featured: false,
     benefits: [
@@ -276,42 +230,12 @@ export const SERVICES_DATA: Service[] = [
     ]
   },
   {
-    slug: "veneers",
-    title: "Veneers",
-    shortDescription: "Ultra-thin, custom-made ceramic shells to instantly correct chips, gaps, and severe discoloration.",
-    description: "Porcelain veneers are the secret behind Hollywood smiles. These ultra-thin, highly durable ceramic shells are permanently bonded to the front of your teeth. They instantly correct chips, cracks, stubborn discoloration, and minor misalignments, giving you a flawless, symmetrical, and permanently white smile in just a few visits.",
-    icon: "sparkles",
-    heroImage: "/services/dental-smile.jpg",
-    category: "cosmetic",
-    featured: false,
-    benefits: [
-      "Instantly corrects multiple cosmetic flaws",
-      "Highly stain-resistant compared to natural enamel",
-      "Custom-matched to your desired tooth color",
-      "Durable and long-lasting (10-15+ years)"
-    ],
-    procedure: [
-      { step: 1, title: "Smile Design", description: "We digitally design the shape and shade of your new veneers." },
-      { step: 2, title: "Preparation", description: "A microscopic layer of enamel is gently buffed to make room for the veneer." },
-      { step: 3, title: "Custom Fabrication", description: "Your veneers are crafted in a high-end dental lab." },
-      { step: 4, title: "Final Bonding", description: "The veneers are permanently bonded to your teeth using a specialized resin." }
-    ],
-    faqs: [
-      { question: "What is the cost of dental veneers in Indore?", answer: "Composite veneers cost ₹3,000-₹6,000 per tooth, while porcelain veneers range from ₹8,000-₹18,000 per tooth in Indore. Porcelain veneers last longer (10-15 years) and resist staining better than composite (5-7 years). Most smile transformations require veneers on 6-10 front teeth." },
-      { question: "Do veneers damage your natural teeth?", answer: "A thin layer (0.5mm) of enamel is removed to bond veneers, making the process irreversible but not damaging. Modern minimal-prep and no-prep veneers remove even less tooth structure. Once you get veneers, you'll need to maintain or replace them long-term, but your teeth remain healthy underneath." },
-      { question: "How long do dental veneers last?", answer: "Porcelain veneers last 10-15 years with proper care, while composite veneers last 5-7 years. Longevity depends on oral hygiene, avoiding biting hard objects, and preventing grinding with a nightguard if needed. With good maintenance, many patients enjoy veneers for 20+ years." },
-      { question: "Can veneers fix crooked or gapped teeth?", answer: "Veneers can correct minor alignment issues, small gaps, and slightly crooked teeth instantly without braces. For severe misalignment or large gaps, orthodontic treatment may be necessary first. A consultation at Indore Dental Hospital will determine if veneers alone can achieve your desired result." },
-      { question: "Will veneers look fake or too white?", answer: "Modern veneers are highly customizable in shade, shape, and translucency to look completely natural. We match them to your facial features and desired brightness—not everyone wants Hollywood-white teeth. Digital smile design lets you preview and approve the look before fabrication begins." },
-      { question: "Can I eat normally with veneers?", answer: "Yes, veneers function like natural teeth for eating most foods. Avoid biting very hard items like ice, nuts with shells, or opening packages with your teeth. Good oral hygiene, regular dental visits, and a nightguard if you grind teeth will keep your veneers looking great for years." }
-    ]
-  },
-  {
     slug: "dentures",
-    title: "Dentures",
-    shortDescription: "Comfortable, natural-looking removable replacements for missing teeth and surrounding tissues.",
-    description: "Whether you need partial dentures to replace a few missing teeth or full dentures to restore an entire arch, our custom-crafted dentures are designed for ultimate comfort, stability, and aesthetics. We use high-quality acrylics and resins to ensure your dentures look indistinguishable from natural teeth and allow you to eat and speak with confidence.",
+    title: "Implant-Supported Complete Dentures",
+    shortDescription: "Permanently fixed, implant-supported full dentures that never slip or click — eat, speak, and smile with total confidence.",
+    description: "Implant-supported complete dentures are the ultimate solution for patients who have lost all or most of their teeth. Unlike traditional removable dentures that rest on the gums and can slip, click, or cause sore spots, implant-supported dentures are securely anchored onto 4–6 strategically placed dental implants. The result is a full arch of teeth that stays completely stable — you can eat, speak, and smile with absolute confidence.\n\nAt Indore Dental Hospital, we offer both bar-retained and ball-retained implant denture systems, as well as fixed hybrid options like All-on-4. Each case is planned using CBCT imaging and digital impressions to ensure precise fit and optimal aesthetics. The implants preserve your jawbone health, prevent the sunken facial appearance associated with bone loss, and provide significantly better chewing efficiency than conventional dentures.\n\nDr. Shrivastava personally places every implant and oversees the fabrication of your custom dentures using high-quality, natural-looking materials. Whether you are upgrading from an existing denture or getting teeth for the first time after extractions, we guide you through every stage — from the initial consultation to your final confident smile.",
     icon: "implant",
-    heroImage: "/services/dental-smile.jpg",
+    heroImage: "/services/dentures.webp",
     category: "restorative",
     featured: false,
     benefits: [
@@ -337,11 +261,11 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     slug: "gum-treatment",
-    title: "Gum Treatment",
-    shortDescription: "Advanced periodontal therapy to treat bleeding gums, infections, and bone loss.",
-    description: "Healthy gums are the foundation of a healthy mouth. Periodontal (gum) disease is the leading cause of tooth loss in adults. Our comprehensive gum treatments range from deep scaling and root planing to advanced laser therapy, designed to eradicate bacteria, halt bone loss, and restore your gums to a healthy pink state.",
+    title: "Gum Treatment for Bad Breath and Unpleasant Taste",
+    shortDescription: "Advanced periodontal therapy to treat bleeding gums, eliminate bad breath, and restore your oral health from the roots up.",
+    description: "Persistent bad breath and an unpleasant taste in your mouth are often early signs of gum disease. Periodontal (gum) disease is caused by bacterial plaque buildup below the gumline, leading to inflammation, bleeding, receding gums, and eventually bone loss. It is the leading cause of tooth loss in adults — and a common source of chronic halitosis that mouthwash alone cannot fix.\n\nAt Indore Dental Hospital, we provide comprehensive gum treatments that target the root cause of bad breath and gum infection. Our services range from deep scaling and root planing (a thorough cleaning of the tooth root surfaces below the gumline) to advanced laser therapy for removing infected tissue. These treatments eradicate the bacteria responsible for bad odour and bleeding, allowing your gums to heal and return to a healthy pink state.\n\nHealthy gums are the foundation of a healthy mouth. Our periodontal therapy not only freshens your breath and eliminates unpleasant taste — it halts bone loss, tightens loose teeth, and reduces your risk of systemic health problems linked to gum disease, including heart disease and diabetes complications.",
     icon: "microscope",
-    heroImage: "/services/root-canal-clinical.avif",
+    heroImage: "/services/gum_treatment.jpg",
     category: "preventive",
     featured: false,
     benefits: [
@@ -365,64 +289,4 @@ export const SERVICES_DATA: Service[] = [
       { question: "What happens if I ignore gum disease?", answer: "Untreated gum disease progresses to bone loss, tooth loosening, tooth loss, and can affect overall health by increasing risk of heart disease, diabetes complications, and stroke. The bacteria from gum infections enter the bloodstream, causing systemic inflammation. Treatment becomes more complex and expensive as disease advances." }
     ]
   },
-  {
-    slug: "cosmetic-dentistry",
-    title: "Cosmetic Dentistry",
-    shortDescription: "A wide array of aesthetic procedures to enhance the symmetry, color, and shape of your teeth.",
-    description: "Cosmetic dentistry is an art form. It encompasses treatments like composite bonding, gum contouring, enamel shaping, and minor alignment corrections. Whether you have a small chip, an uneven gumline, or a slightly misshapen tooth, our cosmetic procedures are designed to perfect the small details that make a huge difference in your smile's overall harmony.",
-    icon: "sparkles",
-    heroImage: "/services/dental-smile.jpg",
-    category: "cosmetic",
-    featured: false,
-    benefits: [
-      "Fixes minor imperfections quickly",
-      "Often requires zero anesthesia",
-      "Highly affordable cosmetic upgrades",
-      "Immediate, same-day results"
-    ],
-    procedure: [
-      { step: 1, title: "Aesthetic Evaluation", description: "We identify the specific imperfections you wish to correct." },
-      { step: 2, title: "Material Selection", description: "We match composite resins exactly to your natural tooth shade." },
-      { step: 3, title: "Artistic Application", description: "The material is carefully sculpted and bonded to the tooth." },
-      { step: 4, title: "Polishing", description: "The tooth is polished to a natural, high-gloss finish." }
-    ],
-    faqs: [
-      { question: "What cosmetic dental treatments are available in Indore?", answer: "Popular cosmetic treatments include teeth whitening, veneers, bonding, crowns, gum contouring, orthodontics (braces/aligners), and smile makeovers combining multiple procedures. At Indore Dental Hospital, we customize treatment plans based on your goals, budget, and dental condition. Digital smile design helps you visualize results before starting." },
-      { question: "Is cosmetic dentistry expensive?", answer: "Costs vary widely—teeth whitening starts at ₹8,000, bonding at ₹2,000-₹5,000 per tooth, veneers ₹3,000-₹18,000 per tooth, and comprehensive makeovers ₹50,000-₹3,00,000+. Many patients choose phased treatment over several months to manage costs. The investment improves confidence, appearance, and often functionality." },
-      { question: "How long do cosmetic dental results last?", answer: "Whitening lasts 1-3 years, bonding 5-7 years, veneers 10-15 years, and crowns 10-20 years with proper care. Longevity depends on oral hygiene, avoiding damaging habits, and regular dental visits. Most treatments require eventual replacement or touch-ups, but many patients enjoy results for decades." },
-      { question: "Can cosmetic dentistry fix my smile issues?", answer: "Cosmetic dentistry addresses stained, chipped, cracked, gapped, crooked, or misshapen teeth, as well as gummy smiles. If underlying decay or gum disease exists, these must be treated first. A comprehensive evaluation determines which cosmetic procedures will achieve your desired outcome realistically." },
-      { question: "Is cosmetic dentistry only about appearance?", answer: "While aesthetics are primary, many cosmetic treatments also improve function—veneers protect worn teeth, crowns restore broken teeth, and orthodontics correct bite problems. A beautiful smile that's also healthy and functional is the goal. Cosmetic and restorative dentistry often overlap." },
-      { question: "What's the difference between cosmetic and regular dentistry?", answer: "Regular dentistry focuses on oral health, treating decay, infections, and disease. Cosmetic dentistry enhances appearance of healthy teeth through elective procedures. Many dentists combine both—for example, a crown can be both functional (protecting a weak tooth) and cosmetic (looking natural). Indore Dental Hospital offers integrated treatment plans addressing health and aesthetics together." }
-    ]
-  },
-  {
-    slug: "fixed-teeth-placement",
-    title: "Fixed Teeth Placement",
-    shortDescription: "Secure, permanent teeth replacements using advanced bridges and implant-supported systems.",
-    description: "Missing multiple teeth? Fixed teeth placement restores your smile with permanent prosthetics that never need to be removed. Whether through a traditional ceramic dental bridge or a full-arch implant-supported system (like All-on-4), we provide fixed, unmovable teeth that look, feel, and function exactly like your natural dentition.",
-    icon: "implant",
-    heroImage: "/services/dental-smile.jpg",
-    category: "restorative",
-    featured: false,
-    benefits: [
-      "Permanent—never slips or falls out",
-      "Restores 100% of your biting force",
-      "No need for messy adhesives",
-      "Prevents adjacent teeth from shifting"
-    ],
-    procedure: [
-      { step: 1, title: "Structural Assessment", description: "We evaluate the health of adjacent teeth or jawbone for support." },
-      { step: 2, title: "Preparation/Implant Placement", description: "We prepare the anchor teeth or surgically place the implants." },
-      { step: 3, title: "Impression & Fabrication", description: "Custom fixed teeth are fabricated in a premium lab." },
-      { step: 4, title: "Permanent Cementation", description: "The new teeth are permanently secured in your mouth." }
-    ],
-    faqs: [
-      { question: "What are fixed teeth and how are they different from dentures?", answer: "Fixed teeth are permanent dental restorations that are cemented or screwed in place and cannot be removed by the patient, including crowns, bridges, and implant-supported prosthetics. Unlike removable dentures, they function and feel like natural teeth with superior stability and chewing efficiency. Fixed solutions prevent bone loss and don't require removal for cleaning." },
-      { question: "What is the cost of fixed teeth in Indore?", answer: "Single tooth crowns cost ₹3,000-₹15,000 depending on material (metal, ceramic, zirconia). Dental bridges range ₹8,000-₹30,000 per unit. Implant-supported fixed teeth cost ₹25,000-₹50,000 per implant plus crown. Full-mouth fixed teeth on implants (All-on-4/All-on-6) range ₹2,50,000-₹6,00,000 per arch." },
-      { question: "How long do fixed teeth last?", answer: "Fixed bridges typically last 10-15 years, individual crowns 10-20 years, and implant-supported fixed teeth can last 20+ years or a lifetime with proper care. Success depends on oral hygiene, regular check-ups, avoiding excessive force, and maintaining bone health around implants. At Indore Dental Hospital, we use high-quality materials for maximum longevity." },
-      { question: "Can I get same-day fixed teeth?", answer: "Immediate loading is possible with certain implant systems, where temporary fixed teeth are attached the same day as implant placement. However, permanent fixed teeth typically require 3-6 months of healing for proper bone integration. Same-day crowns using CAD/CAM technology are available for single tooth restorations." },
-      { question: "What's better—fixed bridge or dental implant?", answer: "Implants are superior long-term as they preserve bone, don't require cutting adjacent teeth, and last longer. Bridges are faster and more economical initially but require grinding down healthy neighboring teeth for support. If bone and budget allow, implants are the gold standard; otherwise, bridges are an excellent fixed alternative to removable dentures." },
-      { question: "How do I care for fixed teeth?", answer: "Brush twice daily, floss around fixed teeth using threaders or water flossers, avoid biting extremely hard objects, and visit for professional cleanings every 6 months. For implant-supported fixed teeth, maintaining gum health is critical. Proper care ensures your fixed teeth function and look great for many years." }
-    ]
-  }
 ];

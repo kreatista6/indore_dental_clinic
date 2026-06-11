@@ -88,17 +88,18 @@ export function AppointmentCTA() {
 
             <ScrollReveal direction="right" delay={0.2}>
               <div className="flex flex-col gap-6 mt-4">
-                <div className="flex flex-col md:flex-row items-center justify-center text-center gap-4 p-4 rounded-2xl bg-[var(--color-bg)] border border-[var(--color-border)] w-full max-w-sm">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[var(--color-primary)]">
+                <a
+                  href={`tel:${CLINIC_PHONE.replace(/\s+/g, '')}`}
+                  className="flex flex-col md:flex-row items-center justify-center text-center gap-4 p-5 rounded-2xl bg-[var(--color-primary-light)] border-2 border-[var(--color-primary)]/20 w-full max-w-sm group hover:bg-[var(--color-primary)] transition-all duration-200 hover:shadow-lg"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary)] text-white group-hover:bg-white group-hover:text-[var(--color-primary)] transition-all duration-200">
                     <PhoneCall className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="text-sm text-[var(--color-text-muted)]">Need immediate help?</p>
-                    <a href={`tel:${CLINIC_PHONE.replace(/\s+/g, '')}`} className="text-xl font-bold text-[var(--color-text-primary)] hover:text-[var(--color-primary)]">
-                      {CLINIC_PHONE}
-                    </a>
+                    <p className="text-sm font-semibold text-[var(--color-primary)] group-hover:text-white/90 transition-colors">Need immediate help? Tap to call</p>
+                    <p className="text-xl font-bold text-[var(--color-text-primary)] group-hover:text-white transition-colors">{CLINIC_PHONE}</p>
                   </div>
-                </div>
+                </a>
               </div>
             </ScrollReveal>
           </div>

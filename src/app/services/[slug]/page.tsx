@@ -8,7 +8,7 @@ import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import { CLINIC_NAME, CLINIC_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 
-const ACTIVE_SLUGS = ["dental-implants", "smile-makeover", "root-canal", "teeth-whitening", "braces-orthodontics", "pediatric-dentistry"];
+const ACTIVE_SLUGS = ["dental-implants", "root-canal", "teeth-whitening", "braces-orthodontics", "pediatric-dentistry", "tooth-extraction", "dentures", "gum-treatment"];
 
 export function generateStaticParams() {
   return ACTIVE_SLUGS.map((slug) => ({ slug }));

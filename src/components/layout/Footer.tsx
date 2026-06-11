@@ -60,7 +60,7 @@ export function Footer() {
           <div className="flex flex-col gap-6 lg:col-span-2">
             <h4 className="text-lg font-semibold">Our Services</h4>
             <nav className="grid grid-cols-2 gap-x-6 gap-y-2.5">
-              {SERVICES_DATA.slice(0, 6).map((service) => (
+              {SERVICES_DATA.map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}

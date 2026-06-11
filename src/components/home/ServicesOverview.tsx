@@ -70,7 +70,7 @@ function DesktopView() {
                 );
               })}
               <a href="/services" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline">
-                View all 5+ treatments →
+                View all 8 treatments →
               </a>
             </div>
             <div className="w-[340px] lg:w-[420px] shrink-0">
@@ -158,7 +158,7 @@ function MobileView() {
         </button>
       </div>
       <a href="/services" className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline">
-        View all 5+ treatments →
+        View all 8 treatments →
       </a>
     </div>
   );
