@@ -10,23 +10,52 @@ export default function AboutPage() {
     <div>
 
       {/* ── Hero banner ─────────────────────────────────────────────────── */}
-<section className="-mt-24 pt-24 bg-[#235b7a]">
-  {/* Image strip */}
-  <div className="relative w-full h-[40vw] min-h-[200px] md:h-[50vh]">
+<section className="-mt-24 pt-24 max-md:-mt-14 max-md:pt-14 bg-[#235b7a]">
+  {/* Desktop banner */}
+  <div className="hidden md:block relative w-full h-[50vh]">
     <Image
       src="/doctor/banner.jpg"
       alt={`${DOCTOR.nameEn} — ${CLINIC_NAME}`}
       fill
-      className="object-cover object-[center_20%] md:object-top"
+      className="object-cover object-top"
       priority
       sizes="100vw"
     />
   </div>
 
-  {/* Clean text block below image on mobile, hidden on desktop */}
-  <div className="md:hidden bg-[var(--color-primary)] px-5 py-4 text-white">
-    <h1 className="text-xl font-bold">{CLINIC_NAME}</h1>
-    <p className="text-sm text-white/80 mt-1">Premium, pain-free dental care in Central India.</p>
+  {/* Mobile custom text banner */}
+  <div className="md:hidden px-5 pt-4 pb-6 text-white">
+    <div className="flex items-start gap-4 mb-4">
+      <div className="h-16 w-16 shrink-0 rounded-full border-[3px] border-white overflow-hidden shadow-lg bg-white">
+        <Image
+          src="/doctor/face_banner.jpg"
+          alt={DOCTOR.nameEn}
+          width={64}
+          height={64}
+          className="object-cover w-full h-full"
+        />
+      </div>
+      <div className="pt-1">
+        <h1 className="text-lg font-bold leading-tight text-[var(--color-accent)]">{DOCTOR.nameEn}</h1>
+        <p className="text-sm text-[var(--color-accent)]/90 mt-0.5 font-medium">Maxillofacial Prosthodontist &amp; Implantologist</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-1.5 mb-3">
+      {["MDS", "FWCLI (USA)", "PGCOI (Israel)", "PGCAE (New Delhi)", "FAGE"].map((badge) => (
+        <span
+          key={badge}
+          className="inline-block text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/10 text-white/90 border border-white/15"
+        >
+          {badge}
+        </span>
+      ))}
+    </div>
+
+    <div className="space-y-1 text-xs text-white/75 leading-relaxed border-t border-white/10 pt-3">
+      <p>Former PGMO, District Hospital, Ujjain &middot; Assistant Professor, RKDF Dental College, Bhopal</p>
+      <p>Consultant at Health Plus Medical Centre (New Delhi), Shri Ram Dental Centre (New Delhi), Om Sai Dental Centre (Ghaziabad) &middot; Former Consultant at Ratra Dental Centre (Noida)</p>
+    </div>
   </div>
 </section>
 
