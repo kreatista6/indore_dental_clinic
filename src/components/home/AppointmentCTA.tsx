@@ -9,7 +9,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
-import { PhoneCall, CalendarCheck } from "lucide-react";
+import { PhoneCall, CalendarCheck, CalendarDays } from "lucide-react";
 import { CLINIC_PHONE } from "@/lib/constants";
 import { SERVICES_DATA } from "@/lib/services-data";
 
@@ -155,7 +155,10 @@ export function AppointmentCTA() {
                     </div>
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="appt-date" className="sr-only">Preferred Date</label>
-                      <Input id="appt-date" type="date" {...register("date")} className="bg-white text-[var(--color-text-primary)]" />
+                      <div className="relative">
+                        <Input id="appt-date" type="date" min={new Date().toISOString().split('T')[0]} {...register("date")} className="bg-white pr-10 [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer" />
+                        <CalendarDays className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--color-text-muted)] pointer-events-none" />
+                      </div>
                       {errors.date && <span className="text-red-500 text-xs px-1">{errors.date.message}</span>}
                     </div>
                   </div>
