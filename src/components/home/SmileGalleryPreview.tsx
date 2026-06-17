@@ -10,7 +10,7 @@ export function SmileGalleryPreview() {
   const previewCases = [
     {
       id: 1,
-      category: "Veneers & Whitening",
+      category: "Teeth Whitening",
       beforeImage: "/gallery/veneers-before.png",
       afterImage: "/gallery/veneers-after.png",
     },

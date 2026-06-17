@@ -47,7 +47,7 @@ export function Navbar() {
           )}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 md:gap-3 shrink-0">
+          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 md:gap-3 shrink-0">
             <Image
               src="/logo.png"
               alt="Indore Dental Hospital"
@@ -70,6 +70,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => { if (isActive) window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className={cn(
                     "relative text-base font-medium transition-colors hover:text-[var(--color-primary)]",
                     isActive ? "text-[var(--color-primary)]" : "text-[var(--color-text-muted)]"
@@ -127,7 +128,7 @@ export function Navbar() {
           >
             <div className="flex h-full flex-col px-6 py-6 safe-area-inset">
               <div className="flex items-center justify-between mb-10">
-                <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/" className="flex items-center gap-3" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
                   <Image src="/logo.png" alt={CLINIC_NAME} width={36} height={36} className="h-9 w-9 object-contain" />
                   <div className="flex flex-col leading-tight">
                     <span className="text-base font-bold text-[var(--color-text-primary)]">Indore Dental</span>
@@ -148,7 +149,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => { setIsMobileMenuOpen(false); if (pathname === link.href) window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                     className={cn(
                       "text-3xl font-bold tracking-tight py-4 border-b border-[var(--color-border)] transition-colors",
                       pathname === link.href

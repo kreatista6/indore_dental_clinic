@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as z from "zod";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
-import { appointmentConfirmationHtml } from "@/emails/appointment-confirmation";
+import { appointmentConfirmationHtml, clinicNotificationHtml } from "@/emails/appointment-confirmation";
 
 const appointmentSchema = z.object({
   name: z.string().min(2),
@@ -54,10 +54,12 @@ export async function POST(req: Request) {
     // Send confirmation to the patient
     const patientHtml = appointmentConfirmationHtml({
       patientName: formData.name,
+      phone: formData.phone,
+      email: formData.email,
       treatment: formData.treatment,
       appointmentDate: formattedDate,
       appointmentTime: formData.time,
-      referenceId,
+      message: formData.message,
     });
 
     const { error: patientError } = await resend.emails.send({
@@ -72,27 +74,22 @@ export async function POST(req: Request) {
     }
 
     // Send notification to the clinic
+    const clinicHtml = clinicNotificationHtml({
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      treatment: formData.treatment,
+      date: formData.date,
+      time: formData.time,
+      message: formData.message,
+      referenceId,
+    });
+
     const { error: clinicError } = await resend.emails.send({
       from: "Indore Dental Hospital <onboarding@resend.dev>",
       to: clinicEmail,
       subject: `New Appointment: ${formData.name} — ${formData.treatment}`,
-      html: `
-        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
-          <h2 style="color:#0d7377;margin-top:0;">New Appointment Request</h2>
-          <table style="width:100%;border-collapse:collapse;">
-            <tr><td style="padding:8px 0;color:#6b7280;width:140px;">Name</td><td style="padding:8px 0;font-weight:600;">${formData.name}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;">Phone</td><td style="padding:8px 0;font-weight:600;">${formData.phone}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;">Email</td><td style="padding:8px 0;font-weight:600;">${formData.email}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;">Treatment</td><td style="padding:8px 0;font-weight:600;">${formData.treatment}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;">Preferred Date</td><td style="padding:8px 0;font-weight:600;">${formData.date}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;">Preferred Time</td><td style="padding:8px 0;font-weight:600;">${formData.time}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;vertical-align:top;">Notes</td><td style="padding:8px 0;">${formData.message || "—"}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;">Consent</td><td style="padding:8px 0;font-weight:600;color:#059669;">&#10003; Obtained</td></tr>
-          </table>
-          <hr style="border:none;border-top:1px solid #e5e7eb;margin:20px 0;" />
-          <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from Indore Dental Hospital website — Ref: ${referenceId}</p>
-        </div>
-      `,
+      html: clinicHtml,
     });
 
     if (clinicError) {

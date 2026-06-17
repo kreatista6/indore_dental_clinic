@@ -17,7 +17,7 @@ export default function AboutPage() {
       src="/doctor/banner.jpg"
       alt={`${DOCTOR.nameEn} — ${CLINIC_NAME}`}
       fill
-      className="object-cover object-top"
+      className="object-contain object-center"
       priority
       sizes="100vw"
     />
