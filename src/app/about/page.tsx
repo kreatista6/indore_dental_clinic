@@ -11,22 +11,11 @@ export default function AboutPage() {
 
       {/* ── Hero banner ─────────────────────────────────────────────────── */}
 <section className="-mt-24 pt-24 max-md:-mt-14 max-md:pt-14 bg-[#235b7a]">
-  {/* Desktop banner */}
-  <div className="hidden md:block relative w-full h-[50vh]">
-    <Image
-      src="/doctor/banner.jpg"
-      alt={`${DOCTOR.nameEn} — ${CLINIC_NAME}`}
-      fill
-      className="object-contain object-center"
-      priority
-      sizes="100vw"
-    />
-  </div>
+  <div className="px-5 md:px-8 pt-4 md:pt-12 pb-6 md:pb-14 text-white mx-auto max-w-7xl relative z-10">
 
-  {/* Mobile custom text banner */}
-  <div className="md:hidden px-5 pt-4 pb-6 text-white">
-    <div className="flex items-start gap-4 mb-4">
-      <div className="h-16 w-16 shrink-0 rounded-full border-[3px] border-white overflow-hidden shadow-lg bg-white">
+    {/* Mobile layout — circular avatar left of name */}
+    <div className="flex items-start gap-4 mb-3 md:hidden">
+      <div className="h-16 w-16 shrink-0 rounded-full border-[3px] border-white/30 overflow-hidden shadow-lg bg-white">
         <Image
           src="/doctor/face_banner.jpg"
           alt={DOCTOR.nameEn}
@@ -37,24 +26,45 @@ export default function AboutPage() {
       </div>
       <div className="pt-1">
         <h1 className="text-lg font-bold leading-tight text-[var(--color-accent)]">{DOCTOR.nameEn}</h1>
-        <p className="text-sm text-[var(--color-accent)]/90 mt-0.5 font-medium">Maxillofacial Prosthodontist &amp; Implantologist</p>
+        <p className="text-xs text-[var(--color-accent)]/80 mt-0.5 font-medium tracking-wide">Maxillofacial Prosthodontist &amp; Implantologist</p>
       </div>
     </div>
 
-    <div className="flex flex-wrap gap-1.5 mb-3">
+    {/* Desktop layout — text only, photo is absolute */}
+    <div className="hidden md:block mb-3 md:mb-5">
+      <div className="pt-1 md:pt-3 lg:max-w-[55%]">
+        <h1 className="text-lg md:text-4xl font-bold leading-tight tracking-tight text-[var(--color-accent)]">{DOCTOR.nameEn}</h1>
+        <p className="text-xs md:text-base text-[var(--color-accent)]/80 mt-0.5 md:mt-1.5 font-medium tracking-wide max-w-md">Maxillofacial Prosthodontist &amp; Implantologist</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-1.5 md:gap-2.5 mb-4 md:mb-5 lg:max-w-[55%]">
       {["MDS", "FWCLI (USA)", "PGCOI (Israel)", "PGCAE (New Delhi)", "FAGE"].map((badge) => (
         <span
           key={badge}
-          className="inline-block text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/10 text-white/90 border border-white/15"
+          className="inline-block text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] px-3 md:px-3.5 py-1 md:py-1.5 rounded-full bg-white/10 text-white/90 border border-white/15"
         >
           {badge}
         </span>
       ))}
     </div>
 
-    <div className="space-y-1 text-xs text-white/75 leading-relaxed border-t border-white/10 pt-3">
+    <div className="space-y-1 md:space-y-1.5 text-xs md:text-sm text-white/70 leading-relaxed max-w-2xl lg:max-w-[55%] border-t border-white/10 pt-3 md:pt-4">
       <p>Former PGMO, District Hospital, Ujjain &middot; Assistant Professor, RKDF Dental College, Bhopal</p>
       <p>Consultant at Health Plus Medical Centre (New Delhi), Shri Ram Dental Centre (New Delhi), Om Sai Dental Centre (Ghaziabad) &middot; Former Consultant at Ratra Dental Centre (Noida)</p>
+    </div>
+
+    {/* Desktop photo card — positioned relative to the content container */}
+    <div className="hidden md:block absolute right-4 lg:right-8 top-12 z-20">
+      <div className="h-56 w-56 lg:h-64 lg:w-64 rounded-2xl border-[4px] border-white/30 overflow-hidden shadow-2xl bg-white">
+        <Image
+          src="/doctor/face_banner.jpg"
+          alt={DOCTOR.nameEn}
+          width={256}
+          height={256}
+          className="object-cover w-full h-full"
+        />
+      </div>
     </div>
   </div>
 </section>

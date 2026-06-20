@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import * as z from "zod";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { appointmentConfirmationHtml, clinicNotificationHtml } from "@/emails/appointment-confirmation";
+import { CLINIC_NAME } from "@/lib/constants";
 
 const appointmentSchema = z.object({
   name: z.string().min(2),
@@ -43,8 +44,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
+    if (!process.env.RESEND_FROM_EMAIL) {
+      console.error("RESEND_FROM_EMAIL is not set");
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    }
+
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const clinicEmail = process.env.CLINIC_EMAIL || "indoredentalhospital@gmail.com";
+    const clinicEmail = process.env.CLINIC_EMAIL;
+    if (!clinicEmail) {
+      console.error("CLINIC_EMAIL is not set");
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    }
+
+    const sender = `${CLINIC_NAME} <${process.env.RESEND_FROM_EMAIL}>`;
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const referenceId = generateReferenceId();
 
     const formattedDate = new Date(formData.date).toLocaleDateString("en-IN", {
@@ -60,10 +73,11 @@ export async function POST(req: Request) {
       appointmentDate: formattedDate,
       appointmentTime: formData.time,
       message: formData.message,
+      siteUrl,
     });
 
     const { error: patientError } = await resend.emails.send({
-      from: "Indore Dental Hospital <onboarding@resend.dev>",
+      from: sender,
       to: formData.email,
       subject: `Appointment Confirmed — Indore Dental Hospital`,
       html: patientHtml,
@@ -83,10 +97,11 @@ export async function POST(req: Request) {
       time: formData.time,
       message: formData.message,
       referenceId,
+      siteUrl,
     });
 
     const { error: clinicError } = await resend.emails.send({
-      from: "Indore Dental Hospital <onboarding@resend.dev>",
+      from: sender,
       to: clinicEmail,
       subject: `New Appointment: ${formData.name} — ${formData.treatment}`,
       html: clinicHtml,

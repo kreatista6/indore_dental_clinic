@@ -1,3 +1,5 @@
+import { CLINIC_NAME, CLINIC_ADDRESS, CLINIC_PHONE, CLINIC_EMAIL, DOCTOR, CLINIC_TIMINGS } from "@/lib/constants";
+
 export interface AppointmentConfirmationProps {
   patientName: string;
   phone: string;
@@ -6,6 +8,7 @@ export interface AppointmentConfirmationProps {
   appointmentDate: string;
   appointmentTime: string;
   message?: string;
+  siteUrl: string;
 }
 
 export interface ClinicNotificationProps {
@@ -17,7 +20,13 @@ export interface ClinicNotificationProps {
   time: string;
   message?: string;
   referenceId: string;
+  siteUrl: string;
 }
+
+const hoursText = CLINIC_TIMINGS.map(t => `${t.days}: ${t.hours}`).join("<br>");
+const credentialsText = DOCTOR.credentials.join(" · ");
+const phoneDigits = CLINIC_PHONE.replace(/\s+/g, "");
+const whatsappUrl = `https://wa.me/${phoneDigits.replace(/[^0-9]/g, "")}?text=Hello%21+I%27d+like+to+confirm+my+appointment.`;
 
 export function appointmentConfirmationHtml({
   patientName,
@@ -27,13 +36,14 @@ export function appointmentConfirmationHtml({
   appointmentDate,
   appointmentTime,
   message,
+  siteUrl,
 }: AppointmentConfirmationProps): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Appointment Confirmed – Indore Dental Hospital</title>
+<title>Appointment Confirmed – ${CLINIC_NAME}</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -99,14 +109,14 @@ export function appointmentConfirmationHtml({
 
   <div class="header">
     <div class="logo-mark">I</div>
-    <span class="logo-name">Indore Dental Hospital</span>
+    <span class="logo-name">${CLINIC_NAME}</span>
     <span class="logo-sub">Dental · Aesthetics · Implants · Aligners</span>
   </div>
 
   <div class="hero">
     <div class="hero-badge">Appointment Confirmed</div>
     <div class="hero-title">Your smile is<br>in expert hands.</div>
-    <p class="hero-subtitle">We've reserved your time with Dr. Sugandh Shrivastava. Below are your appointment details — please keep this for your records.</p>
+    <p class="hero-subtitle">We've reserved your time with ${DOCTOR.nameEn}. Below are your appointment details — please keep this for your records.</p>
   </div>
 
   <div class="appt-card">
@@ -143,7 +153,7 @@ export function appointmentConfirmationHtml({
     </div>` : ''}
     <div class="appt-row">
       <span class="appt-key">Doctor</span>
-      <span class="appt-val">Dr. Sugandh Shrivastava</span>
+      <span class="appt-val">${DOCTOR.nameEn}</span>
     </div>
   </div>
 
@@ -152,17 +162,17 @@ export function appointmentConfirmationHtml({
       <div class="info-card">
         <span class="info-icon">📍</span>
         <div class="info-card-label">Location</div>
-        <div class="info-card-value">Luvkush Market, Near Aurobindo Hospital, Indore</div>
+        <div class="info-card-value">${CLINIC_ADDRESS}</div>
       </div>
       <div class="info-card">
         <span class="info-icon">🕐</span>
         <div class="info-card-label">Hours</div>
-        <div class="info-card-value">Mon–Sat: 9am–8pm<br>Sun: 10am–2pm</div>
+        <div class="info-card-value">${hoursText}</div>
       </div>
       <div class="info-card">
         <span class="info-icon">📞</span>
         <div class="info-card-label">Contact</div>
-        <div class="info-card-value">+91 99777 88837</div>
+        <div class="info-card-value">${CLINIC_PHONE}</div>
       </div>
     </div>
   </div>
@@ -170,29 +180,29 @@ export function appointmentConfirmationHtml({
   <hr class="divider" />
 
   <div class="cta-section">
-    <a href="https://wa.me/919977788837?text=Hello%21+I%27d+like+to+confirm+my+appointment." class="cta-button">Confirm via WhatsApp</a>
-    <p class="cta-secondary">Need to reschedule? <a href="tel:+919977788837">Call +91 99777 88837</a></p>
-    <p class="cta-secondary" style="margin-top: 6px;">or email <a href="mailto:indoredentalhospital@gmail.com">indoredentalhospital@gmail.com</a></p>
+    <a href="${whatsappUrl}" class="cta-button">Confirm via WhatsApp</a>
+    <p class="cta-secondary">Need to reschedule? <a href="tel:${phoneDigits}">Call ${CLINIC_PHONE}</a></p>
+    <p class="cta-secondary" style="margin-top: 6px;">or email <a href="mailto:${CLINIC_EMAIL}">${CLINIC_EMAIL}</a></p>
   </div>
 
   <div class="footer">
-    <div class="footer-logo">Indore Dental Hospital</div>
+    <div class="footer-logo">${CLINIC_NAME}</div>
     <div class="footer-links">
-      <a href="https://indore-dental-clinic.vercel.app/">Home</a>
-      <a href="https://indore-dental-clinic.vercel.app/services">Services</a>
-      <a href="https://indore-dental-clinic.vercel.app/smile-gallery">Gallery</a>
-      <a href="https://indore-dental-clinic.vercel.app/contact">Contact</a>
+      <a href="${siteUrl}/">Home</a>
+      <a href="${siteUrl}/services">Services</a>
+      <a href="${siteUrl}/smile-gallery">Gallery</a>
+      <a href="${siteUrl}/contact">Contact</a>
     </div>
     <div class="footer-contact">
-      Luvkush Market, Near Aurobindo Hospital, Indore, M.P.<br>
-      <a href="tel:+919977788837">+91 99777 88837</a> &nbsp;·&nbsp;
-      <a href="mailto:indoredentalhospital@gmail.com">indoredentalhospital@gmail.com</a>
+      ${CLINIC_ADDRESS}, M.P.<br>
+      <a href="tel:${phoneDigits}">${CLINIC_PHONE}</a> &nbsp;·&nbsp;
+      <a href="mailto:${CLINIC_EMAIL}">${CLINIC_EMAIL}</a>
     </div>
     <div class="footer-legal">
-      You're receiving this because you booked an appointment at Indore Dental Hospital.<br>
-      © 2026 Indore Dental Hospital. All rights reserved.<br>
-      <a href="https://indore-dental-clinic.vercel.app/privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
-      <a href="https://indore-dental-clinic.vercel.app/terms">Terms of Service</a>
+      You're receiving this because you booked an appointment at ${CLINIC_NAME}.<br>
+      © 2026 ${CLINIC_NAME}. All rights reserved.<br>
+      <a href="${siteUrl}/privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="${siteUrl}/terms">Terms of Service</a>
     </div>
   </div>
 
@@ -211,13 +221,14 @@ export function clinicNotificationHtml({
   time,
   message,
   referenceId,
+  siteUrl,
 }: ClinicNotificationProps): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>New Appointment – Indore Dental Hospital</title>
+<title>New Appointment – ${CLINIC_NAME}</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -281,7 +292,7 @@ export function clinicNotificationHtml({
 
   <div class="header">
     <div class="logo-mark">I</div>
-    <span class="logo-name">Indore Dental Hospital</span>
+    <span class="logo-name">${CLINIC_NAME}</span>
   </div>
 
   <div class="hero">
@@ -328,7 +339,7 @@ export function clinicNotificationHtml({
 
   <div class="footer">
     <div class="footer-ref">${referenceId}</div>
-    <div class="footer-meta">Booked via indore-dental-clinic.vercel.app</div>
+    <div class="footer-meta">Booked via ${siteUrl.replace(/https?:\/\//, "")}</div>
   </div>
 
 </div>

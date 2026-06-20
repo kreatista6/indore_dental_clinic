@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
+import { CLINIC_NAME } from "@/lib/constants";
 
 export async function POST(req: Request) {
   // Rate limit: 3 submissions per IP per 15 minutes
@@ -28,8 +29,24 @@ export async function POST(req: Request) {
     if (!phone || phone.length < 10) return NextResponse.json({ error: "Valid phone required" }, { status: 400 });
     if (!concern)                    return NextResponse.json({ error: "Concern is required" },  { status: 400 });
 
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    }
+
+    if (!process.env.RESEND_FROM_EMAIL) {
+      console.error("RESEND_FROM_EMAIL is not set");
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    }
+
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const toEmail = process.env.CLINIC_EMAIL || "indoredentalhospital@gmail.com";
+    const toEmail = process.env.CLINIC_EMAIL;
+    if (!toEmail) {
+      console.error("CLINIC_EMAIL is not set");
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    }
+
+    const sender = `${CLINIC_NAME} <${process.env.RESEND_FROM_EMAIL}>`;
 
     // Build attachments if selfie provided
     const attachments: { filename: string; content: Buffer }[] = [];
@@ -39,7 +56,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "Indore Dental Hospital <onboarding@resend.dev>",
+      from: sender,
       to: toEmail,
       ...(email ? { replyTo: email } : {}),
       subject: `E-Consultation Request: ${name}`,
@@ -55,7 +72,7 @@ export async function POST(req: Request) {
             <tr><td style="padding:8px 0;color:#6b7280;">Photo</td><td style="padding:8px 0;">${selfie && selfie.size > 0 ? "Attached" : "Not provided"}</td></tr>
           </table>
           <hr style="border:none;border-top:1px solid #e5e7eb;margin:20px 0;" />
-          <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from Indore Dental Hospital website — E-Consultation form</p>
+          <p style="color:#9ca3af;font-size:12px;margin:0;">Sent from ${CLINIC_NAME} website — E-Consultation form</p>
         </div>
       `,
     });
