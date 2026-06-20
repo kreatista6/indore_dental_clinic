@@ -242,16 +242,16 @@ Both use inline styles (email-client safe), dark/gold premium design, and import
 ```env
 # Resend (transactional email — required)
 RESEND_API_KEY=re_xxxxxxxxxxxx
-RESEND_FROM_EMAIL=appointments@yourdomain.com
+RESEND_FROM_EMAIL=appointments@mail.indoredental.co.in
 
 # Clinic email (where notifications arrive)
-CLINIC_EMAIL=clinic@example.com
+CLINIC_EMAIL=indoredentalhospital@gmail.com
 
 # Public
 NEXT_PUBLIC_WHATSAPP_NUMBER=+919977788837
 NEXT_PUBLIC_GOOGLE_MAPS_KEY=
 NEXT_PUBLIC_GA_ID=
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_SITE_URL=https://indoredental.co.in
 ```
 
 ---
