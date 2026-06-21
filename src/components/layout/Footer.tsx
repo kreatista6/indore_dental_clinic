@@ -53,6 +53,12 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <Link href="/privacy-policy" className="text-sm text-white/70 transition-colors hover:text-white">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-sm text-white/70 transition-colors hover:text-white">
+                Terms of Service
+              </Link>
             </nav>
           </div>
 
