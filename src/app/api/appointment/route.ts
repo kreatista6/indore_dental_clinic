@@ -5,6 +5,8 @@ import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { appointmentConfirmationHtml, clinicNotificationHtml } from "@/emails/appointment-confirmation";
 import { CLINIC_NAME } from "@/lib/constants";
 
+export const runtime = "nodejs";
+
 const appointmentSchema = z.object({
   name: z.string().min(2),
   phone: z.string().min(10),

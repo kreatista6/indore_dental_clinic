@@ -3,6 +3,8 @@ import { Resend } from "resend";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { CLINIC_NAME } from "@/lib/constants";
 
+export const runtime = "nodejs";
+
 export async function POST(req: Request) {
   // Rate limit: 3 submissions per IP per 15 minutes
   const ip = getClientIp(req);
@@ -80,7 +82,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true }, { status: 200 });
 
   } catch (error) {
-    console.error("E-consultation error:", error);
+    console.error("E-consultation error:", error instanceof Error ? error.message : error);
+    if (error instanceof Error && error.stack) console.error(error.stack);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
