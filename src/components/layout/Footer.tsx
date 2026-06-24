@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CLINIC_NAME, CLINIC_ADDRESS, CLINIC_PHONE, CLINIC_EMAIL, NAV_LINKS } from "@/lib/constants";
+import { CLINIC_NAME, CLINIC_ADDRESSES, CLINIC_PHONE, CLINIC_EMAIL, NAV_LINKS } from "@/lib/constants";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { FacebookLogo, InstagramLogo, TwitterLogo, MapPin, Phone, Envelope } from "@phosphor-icons/react/dist/ssr";
 
@@ -89,8 +89,14 @@ export function Footer() {
             <h4 className="text-lg font-semibold">Contact Us</h4>
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3 text-sm text-white/90">
-                <MapPin size={20} className="shrink-0 text-[var(--color-accent)]" />
-                <span>{CLINIC_ADDRESS}</span>
+                <MapPin size={20} className="shrink-0 text-[var(--color-accent)] mt-0.5" />
+                <span className="flex flex-col gap-1.5">
+                  {CLINIC_ADDRESSES.map((loc, i) => (
+                    <span key={i}>
+                      <span className="font-medium text-white/70">{loc.name}:</span> {loc.address}
+                    </span>
+                  ))}
+                </span>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/90">
                 <Phone size={20} className="shrink-0 text-[var(--color-accent)]" />

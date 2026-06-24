@@ -3,10 +3,13 @@ import type { FAQ, StatItem, ClinicTiming, Testimonial } from "@/types";
 export const CLINIC_NAME = "Indore Dental Hospital";
 export const CLINIC_TAGLINE = "Dental • Aesthetics • Implants • Aligners";
 export const CLINIC_SINCE = "2012";
-export const CLINIC_ADDRESS = "Luvkush Market, Near Aurobindo Hospital, Indore";
+export const CLINIC_ADDRESSES = [
+  { name: "Sunshine Dental Care", address: "1/3 Prakash Nagar, 3 Batti Chouraha, Ujjain" },
+  { name: "Sunshine Medicare Hospital", address: "101 Siddhivinayak Trade Centre, Shaheed Park, Freeganj, Ujjain" }
+];
 export const CLINIC_PHONE = "+91 9977788837";
 export const CLINIC_EMAIL = "indoredentalhospital@gmail.com";
-export const CLINIC_MAP_URL = "https://goo.gl/maps/placeholder";
+export const CLINIC_MAP_URL = "https://maps.app.goo.gl/P6srcdCGpqoh2r1j6?g_st=ic";
 
 export const DOCTOR = {
   name: "Dr. Sugandh Shrivastava",

@@ -1,4 +1,4 @@
-import { CLINIC_NAME, CLINIC_ADDRESS, CLINIC_PHONE, CLINIC_EMAIL } from "@/lib/constants";
+import { CLINIC_NAME, CLINIC_ADDRESSES, CLINIC_PHONE, CLINIC_EMAIL } from "@/lib/constants";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -118,7 +118,9 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-[var(--color-bg)] p-6 rounded-2xl border border-[var(--color-border)] mt-4 space-y-2">
                 <p><strong>{CLINIC_NAME}</strong></p>
-                <p>{CLINIC_ADDRESS}</p>
+                {CLINIC_ADDRESSES.map((loc, i) => (
+                  <p key={i}><strong>{loc.name}:</strong> {loc.address}</p>
+                ))}
                 <p>Phone: <a href={`tel:${CLINIC_PHONE.replace(/\s+/g, "")}`} className="text-[var(--color-primary)] underline">{CLINIC_PHONE}</a></p>
                 <p>Email: <a href={`mailto:${CLINIC_EMAIL}`} className="text-[var(--color-primary)] underline">{CLINIC_EMAIL}</a></p>
               </div>

@@ -1,4 +1,4 @@
-import { CLINIC_NAME, CLINIC_ADDRESS, CLINIC_PHONE, CLINIC_EMAIL, DOCTOR, CLINIC_TIMINGS } from "@/lib/constants";
+import { CLINIC_NAME, CLINIC_ADDRESSES, CLINIC_PHONE, CLINIC_EMAIL, DOCTOR, CLINIC_TIMINGS } from "@/lib/constants";
 
 export interface AppointmentConfirmationProps {
   patientName: string;
@@ -162,7 +162,7 @@ export function appointmentConfirmationHtml({
       <div class="info-card">
         <span class="info-icon">📍</span>
         <div class="info-card-label">Location</div>
-        <div class="info-card-value">${CLINIC_ADDRESS}</div>
+        <div class="info-card-value">${CLINIC_ADDRESSES.map(l => `${l.name}: ${l.address}`).join("<br>")}</div>
       </div>
       <div class="info-card">
         <span class="info-icon">🕐</span>
@@ -194,7 +194,7 @@ export function appointmentConfirmationHtml({
       <a href="${siteUrl}/contact">Contact</a>
     </div>
     <div class="footer-contact">
-      ${CLINIC_ADDRESS}, M.P.<br>
+      ${CLINIC_ADDRESSES.map(l => l.address).join(" | ")}<br>
       <a href="tel:${phoneDigits}">${CLINIC_PHONE}</a> &nbsp;·&nbsp;
       <a href="mailto:${CLINIC_EMAIL}">${CLINIC_EMAIL}</a>
     </div>
