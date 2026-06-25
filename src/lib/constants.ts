@@ -5,7 +5,8 @@ export const CLINIC_TAGLINE = "Dental • Aesthetics • Implants • Aligners";
 export const CLINIC_SINCE = "2012";
 export const CLINIC_ADDRESSES = [
   { name: "Sunshine Dental Care", address: "1/3 Prakash Nagar, 3 Batti Chouraha, Ujjain" },
-  { name: "Sunshine Medicare Hospital", address: "101 Siddhivinayak Trade Centre, Shaheed Park, Freeganj, Ujjain" }
+  { name: "Sunshine Medicare Hospital", address: "101 Siddhivinayak Trade Centre, Shaheed Park, Freeganj, Ujjain" },
+  { name: "Indore Dental Hospital", address: "Luvkush Market, Near Aurobindo Hospital, Indore" }
 ];
 export const CLINIC_PHONE = "+91 9977788837";
 export const CLINIC_EMAIL = "indoredentalhospital@gmail.com";
